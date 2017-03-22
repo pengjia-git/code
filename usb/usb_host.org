@@ -1,0 +1,31 @@
+* musb_h_tx_flush_fifo()
+ Clear TX fifo. Needed to avoid BABBLE errors.
+
+* static void musb_h_ep0_flush_fifo(struct musb_hw_ep *ep)
+清空断点0的缓存
+
+* static inline void musb_h_tx_start(struct musb_hw_ep *ep)
+
+* static inline void musb_h_tx_dma_start(struct musb_hw_ep *ep)
+
+* static void musb_ep_set_qh(struct musb_hw_ep *ep, 
+int is_in, struct musb_qh *qh)
+
+static struct musb_qh *musb_ep_get_qh(struct musb_hw_ep *ep, int is_in)
+
+设置或者获取端点的传输类型
+
+* musb_start_urb(struct musb *musb, int is_in, struct musb_qh *qh)
+
+* static void musb_giveback(struct musb *musb, struct urb *urb, int status)
+反馈
+
+* 触发
+/* For bulk/interrupt endpoints only */
+static inline void musb_save_toggle(struct musb_qh *qh, int is_in,
+                                    struct urb *urb)
+
+* endpoint 调度之前
+static void musb_advance_schedule(struct musb *musb, struct urb *urb,
+                                  struct musb_hw_ep *hw_ep, int is_in)
+可以回收一些资源。

@@ -1,0 +1,500 @@
+  164  ls
+  165  cd bookwords 
+  166  cat bookwords 
+  167  grep " book[s]? " bookwords 
+  168  egrep " book[s]? " bookwords 
+  169  egrep " book[s]?[^a-z A-Z]" bookwords 
+  170  grep 'book' bookwords 
+  171  grep '[" ']?book[s]?[^a-z A-Z]' bookwords 
+  172  egrep "[" ']?book[s]?[^a-z A-Z]"  bookwords 
+  173  egrep "[\" ']?book[s]?[^a-z A-Z]"  bookwords 
+  174  egrep "[\" ']?book[s]?[^a-z A-Z]?"  bookwords 
+  175  egrep "[\" ']?book[s]?[^a-z A-Z]"  bookwords 
+  176  egrep "[\" ' :space: ]?book[s]?[^a-z A-Z]"  bookwords 
+  177  pwd
+  178  clear
+  179  ls
+  180  clear
+  181  ls
+  182  egrep "book[s]?"  bookwords 
+  183  egrep "[^a-z A-Z]?book[s]?"  bookwords 
+  184  egrep "[ ^a-z A-Z ]?book[s]?"  bookwords 
+  185  ls
+  186  cat gres 
+  187  grep -c "^$" gres 
+  188  clear
+  189  ls
+  190  egrep "^book[s]?"
+  191  egrep "^book[s]?" bookwords 
+  192  egrep "^book[s]?[^a-z]" bookwords 
+  193  egrep "^book[s]?[^ a-z]" bookwords 
+  194  egrep "^book[s]?[ ^ a-z]" bookwords 
+  195  egrep "^book[s]?[^a-z]" bookwords 
+  196  egrep "^book[s]?[^a-z]|[\" :space: ]book[s]?" bookwords 
+  197  egrep "^book[s]?[^a-z]|[\" :space: ]book[s]?[^a-z]" bookwords 
+  198  egrep "^book[s]?[^a-z]|[\" :space: ]book[s]?[^a-z]|book$" bookwords 
+  199  egrep "^book[s]?[^a-z]|[\" :space: ]book[s]?[^a-z]|book$" bookwords  > temp
+  200  wc -l temp 
+  201  clear
+  202  ls
+  203  cd ../
+  204  ls
+  205  cd ch04
+  206  ls
+  207  cat horsefeathers 
+  208  clear
+  209  ls
+  210  emacs horse_sed &
+  211  sed -f horse_sed  horsefeathers 
+  212  sed -f horse_sed  horsefeathers  >temp
+  213  diff temp horsefeathers 
+  214  sed -f horse_sed  horsefeathers
+  215  ls
+  216  emacs horse_sed 
+  217  bg
+  218  ls
+  219  sed -f horse_sed  horsefeathers
+  220  sed -f horse_sed  horsefeathers
+  221  sed -f horse_sed  horsefeathers
+  222  sed -f horse_sed  horsefeathers>temp
+  223  sed -f horse_sed  horsefeathers>temp
+  224  diff temp horsefeathers 
+  225  ls
+  226  sed -f horse_sed  horsefeathers>temp
+  227  sed -f horse_sed  horsefeathers>temp
+  228  sed -f horse_sed  horsefeathers>temp
+  229  cat runsed
+  230  ls /usr/lib/
+  231  ls
+  232  cat getmac2
+  233  cat do.outline 
+  234  ls
+  235  clar
+  236  ls
+  237  cat horsefeathers 
+  238  cat horsefeathers |sed s/for/For/p
+  239  cat horsefeathers |sed -n s/for/For/p
+  240  clear
+  241  ls
+  242  emacs ch05
+  243  clear
+  244  ls
+  245  emacs sed.debug &
+  246  sed -f sed.debug ch05 
+  247  cat getmac1
+  248  cd ../
+  249  ls
+  250  ch06
+  251  ls
+  252  cd ch06/
+  253  ls
+  254  cat test.scribe.data 
+  255  grep 'line' test.scribe.data 
+  256  grep 'lines' test.scribe.data 
+  257  clear
+  258  ls
+  259  sed "/lines/=p"
+  260  sed "/lines/=p" test.scribe.data 
+  261  sed "/lines/=" test.scribe.data 
+  262  sed -n "/lines/=" test.scribe.data 
+  263  sed -n -e "/lines/= p" test.scribe.data 
+  264  clear
+  265  ls
+  266  ls
+  267  clear
+  268  ls
+  269  clear
+  270  ls
+  271  cd ../
+  272  ls
+  273  find . -name "random.c"
+  274  clear
+  275  ls
+  276  ls
+  277  cd ch05
+  278  ls
+  279  clear
+  280  ls
+  281  emacs testdata &
+  282  emacs de_sed&
+  283  sed -f de_sed testdata
+  284  sed -f de_sed testdata
+  285  sed -f de_sed testdata >temp
+  286  diff testdata temp 
+  287  cd ../
+  288  ls
+  289  cd ../
+  290  ls
+  291  ls
+  292  pwd
+  293  find . -name "html"
+  294  ls
+  295  clear
+  296  ls
+  297  clear
+  298  ls
+  299  git log
+  300  ls ~/.emacs
+  301  ls
+  302  cd emacs/
+  303  ls -al
+  304  cp -f emacs\ 配置文件/ ~/.emacs
+  305  ls ~/.emacs
+  306  file  ~/.emacs
+  307  cd emacs\ 配置文件/
+  308  ls
+  309  ls -al
+  310  cp -f .emacs ~/
+  311  emacs fetch_id.sh &
+  312  git log --oneline
+  313  git log
+  314  ls
+  315  sh fetch_id.sh 
+  316  sh fetch_id.sh 
+  317  sh fetch_id.sh 
+  318  ls
+  319  sh fetch_id.sh 
+  320  sh fetch_id.sh 
+  321  emacs fetch_id.sh &
+  322  ls
+  323  sh fetch_id.sh
+  324  sh fetch_id.sh
+  325  clear
+  326  ls
+  327  sh fetch_id.sh
+  328  sh fetch_id.sh
+  329  sh fetch_id.sh
+  330  sh fetch_id.sh
+  331  sh fetch_id.sh
+  332  sh fetch_id.sh
+  333  sh fetch_id.sh
+  334  sh fetch_id.sh
+  335  echo "test my car"|sed -e 's/\(test\)\(my\)\(car\)/[\2 \3 \1]/' 
+  336  clear
+  337  ls
+  338  sh fetch_id.sh
+  339  sh fetch_id.sh
+  340  ls
+  341  cat id_lines 
+  342  clear
+  343  ls
+  344  cat id_lines|sed -e s/\(comm\)/&   \1/
+  345  ls
+  346  cat id_lines|sed -e s/\(s/comm/& jia/
+  347  sed -e s/\(s/comm/& jia/ id_lines 
+  348  ls
+  349  clear
+  350  clear
+  351  ls
+  352  ls
+  353  cd jia/github/
+  354  ls
+  355  cd sedawk2progs/
+  356  ls
+  357  cd ../
+  358  ls
+  359  ls
+  360  cd ../
+  361  ls
+  362  ls
+  363  clear
+  364  ls
+  365  cd github/
+  366  ls
+  367  clear
+  368  ls
+  369  git status
+  370  ls
+  371  cd emacs/
+  372  ls
+  373  cd emacs\ 配置文件/
+  374  ls
+  375  sed  "s/comm/& jia/" id_lines 
+  376  sed -n  "s/comit/&/p" id_lines 
+  377  sed -n  "s/commit/&/p" id_lines 
+  378  sed -n  "s/commit/\1/p" id_lines 
+  379  sed -n  "s/\(commit/\)\/p" id_lines 
+  380  uptime
+  381  clear
+  382  l
+  383  ls
+  384  clear
+  385  ls
+  386  ls
+  387  cd jia/github/emacs/emacs\ 配置文件/
+  388  ls
+  389  sed -n  "s/\(commit/\)\/p" id_lines 
+  390  sed -n  "s/\(commit\)/&/p" id_lines 
+  391  clear
+  392  ls
+  393  sed -n  "s/\(commit\)/\1/p" id_lines 
+  394  clear
+  395  ls
+  396  sed -n  "s/\(commit\)/\1/" id_lines 
+  397  sed   "s/\(commit\)/\1/" id_lines 
+  398  sed -p  "s/\(commit\)/\1/" id_lines 
+  399  sed   "s/\(commit\)/\1/" id_lines 
+  400  sed  -n  "s/\(commit\)/\1/" id_lines 
+  401  sed  -n  "s/\(commit\)/\1/p" id_lines 
+  402  sed  -n  "s/\(commit \)\([0-9 a-f][0-9 a-f]*\)/\1/p" id_lines 
+  403  sed  -n  "s/\(commit \)\([0-9 a-f][0-9 a-f]*\)/\2/p" id_lines 
+  404  ls
+  405  emacs fetch_id.sh
+  406  bg
+  407  sh fetch_id.sh
+  408  sh fetch_id.sh
+  409  sh fetch_id.sh
+  410  sh fetch_id.sh
+  411  sh fetch_id.sh
+  412  ls
+  413  man sed
+  414  ls
+  415  sh fetch_id.sh
+  416  awk "{print Hello,world}"
+  417  awk "{print "Hello,world"}"
+  418  ls
+  419  awk "{print "Hello,world"}" fetch_id.sh
+  420  awk '{print "Hello,world"}'  fetch_id.sh
+  421  awk '{print "Hello,world"}'
+  422  awk '{print Hello,world}'
+  423  awk '{print "Hello,world"}'
+  424  awk 'BEGIN {print "hello,world"}'
+  425  ls
+  426  clear
+  427  ls
+  428  rm *~
+  429  ls
+  430  mv fetch_id.sh ../../sedawk2progs/
+  431  cd ../../sedawk2progs/
+  432  touch
+  433  ls
+  434  emacs test
+  435  ls
+  436  emacs test.awk &
+  437  awk -f test.awk test
+  438  awk -f test.awk test &
+  439  clear
+  440  ls
+  441  fg
+  442  ls
+  443  emacs test.awk &
+  444  ls
+  445  awk -f test.awk test &
+  446  clear
+  447  ls
+  448  awk -f test.awk test
+  449  fg
+  450  fg
+  451  bg
+  452  ls
+  453  clear
+  454  ls
+  455  ls
+  456  awk -f test.awk test
+  457  cat test
+  458  emacs test
+  459  bg
+  460  ls
+  461  ls
+  462  awk -f test.awk test
+  463  awk -f test.awk test
+  464  awk -f test.awk test
+  465  awk -f test.awk test
+  466  awk -f test.awk test
+  467  awk -f test.awk test
+  468  awk -f test.awk test
+  469  ls
+  470  cd ch07
+  471  s
+  472  ls
+  473  grep -rn 'John' .
+  474  man awk
+  475  cd ../
+  476  ls
+  477  find . -name "phone*"
+  478  cd ch13
+  479  ls
+  480  cat phonebill.data 
+  481  cd -
+  482  ls
+  483  emacs names &
+  484  awk -f test.awk names 
+  485  awk -f test.awk names 
+  486  awk -f test.awk names 
+  487  awk -f test.awk names 
+  488  awk -f test.awk names 
+  489  awk -f test.awk names 
+  490  s
+  491  ls
+  492  mv score.awk score
+  493  awk -f score.awk score
+  494  awk -f score.awk score
+  495  awk -f score.awk score
+  496  man awk
+  497  awk -f score.awk score
+  498  awk -f score.awk score
+  499  awk -f score.awk score
+  500  awk -f score.awk score
+  501  ls
+  502  cd jia/
+  503  ls
+  504  git log
+  505  cd github/
+  506  ls
+  507  git log
+  508  ls
+  509  clear
+  510  ls
+  511  clear
+  512  ls
+  513  git log >temp
+  514  cd temp/
+  515  ls
+  516  git log >temp
+  517  ls
+  518  emacs 1.awk &
+  519  awk -f 1.awk temp 
+  520  awk -f 1.awk temp 
+  521  awk -f 1.awk temp |more
+  522  cat temp 
+  523  more temp
+  524  awk -f 1.awk temp 
+  525  wc -l temp
+  526  bc 
+  527  awk -f 1.awk temp |wc -l
+  528  awk -f 1.awk temp > data_commit
+  529  cat data_commit 
+  530  cat data_commit|grep -c '2015'
+  531  cat data_commit|grep -c '2016'
+  532  cat data_commit|grep -c '2017'
+  533  ls
+  534  clear
+  535  ls
+  536  cd ../
+  537  ls
+  538  cd sedawk2progs/
+  539  ls
+  540  rm \#test# 
+  541  ls
+  542  ls
+  543  rm *~
+  544  ls
+  545  clear
+  546  ls
+  547  ls -al
+  548  mkdir 1
+  549  ls
+  550  mv names  score score.awk  test test.awk  1
+  551  ls
+  552  cd 1
+  553  ls
+  554  clear
+  555  ls
+  556  cd ../
+  557  ls
+  558  mkdir mul_line
+  559  cd mul_line/
+  560  ls
+  561  ls
+  562  ls
+  563  ls
+  564  pwd
+  565  mv ../../temp/* .
+  566  ls
+  567  rm *~
+  568  ls
+  569  clear
+  570  ls
+  571  rm c*
+  572  ls
+  573  rm -rf c
+  574  ls
+  575  clear
+  576  ls
+  577  cd ../
+  578  ls
+  579  mkdir check
+  580  cd check/
+  581  ls
+  582  rm ~/.emacs
+  583  ls
+  584  emacs check_data 
+  585  bg
+  586  ls
+  587  ls
+  588  clear
+  589  ls
+  590  clear
+  591  ls
+  592  ls
+  593  awk -f check.awk check_data
+  594  text 
+  595  ls
+  596  vim check_data
+  597  ls
+  598  awk -f check.awk check_data
+  599  ls
+  600  cd ../
+  601  ls
+  602  clear
+  603  ls
+  604  mkdir ls
+  605  cd ls/
+  606  ls
+  607  clear
+  608  ls
+  609  ls -al
+  610  clear
+  611  ls
+  612  cd ../
+  613  ls
+  614  ls -al
+  615  clear
+  616  ls
+  617  ls -al
+  618  ls -al /
+  619  ls -al |awk "{print $5,"\t",$9}"
+  620  ls -al |awk '{print $5,"\t",$9}'
+  621  ls -al |awk '{print $9,"\t",$5}'
+  622  ls -al / |awk '{print $9,"\t",$5}'
+  623  ls
+  624  cler
+  625  s
+  626  clera
+  627  ls
+  628  clera
+  629  ls
+  630  cd 
+  631  cd -
+  632  ls
+  633  cd ls
+  634  ls
+  635  ls
+  636  clear
+  637  ls
+  638  cd ../
+  639  ls
+  640  find . -name .c
+  641  find . -type 
+  642  man find
+  643  find . -type f
+  644  ls
+  645  find ch03 -type f 
+  646  find ch03 -type f |wc -l
+  647  clear
+  648  ls
+  649  find ch03 -type f |xargs|wc -l
+  650  clear
+  651  ls
+  652  ls
+  653  cd  ls
+  654  ls
+  655  emacs lines.sh
+  656  bg
+  657  ls
+  658  sh lines.sh .
+  659  sh lines.sh .
+  660  ls
+  661  sh lines.sh .
+  662  sh lines.sh .
+  663  history >history

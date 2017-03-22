@@ -1,0 +1,8 @@
+#! /usr/bin/perl
+@array = qw (pebbles dino fred barney betty);
+@removed = splice @array,2,0,qw(peng jia);
+while($temp = shift(@array)){
+    print $temp;
+    print " ";
+}
+print "\n";

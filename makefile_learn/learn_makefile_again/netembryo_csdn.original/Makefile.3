@@ -1,0 +1,18 @@
+CC= gcc
+CFLAGS= -g -Wall -Werror
+INCLUDES= -I.
+SOURCES= main.c get_info.c multicast.c rtsp.c Sock.c socket.c sock_ntop_host.c url.c
+
+OBJS := $(SOURCES:.c=.o)
+ 
+main: $(OBJS)
+	 $(CC) $(CFLAGS) $(INCLUDES) -o $@ $(OBJS)
+
+$(OBJS): %.o : %.c
+	$(CC) -c $(CFLAGS) $(INCLUDES) $<
+
+.PHONY: clean
+
+clean:
+	-rm -rf main *.o
+

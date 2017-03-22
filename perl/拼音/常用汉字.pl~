@@ -1,0 +1,19 @@
+if (!open GREP ,"<:encoding(UTF-8)","12.txt"){
+    warn "open file fail$!"
+}
+
+if (!open RESULT ,">","log.txt"){
+    warn "open file fail$!"
+}
+while(<GREP>){
+    chomp();
+    @chars =split(')',$_);
+#    print RESULT "@chars";
+    foreach $char (@chars){
+	print RESULT "$char\n";
+}
+#    print RESULT "$1\n" if /(MID_S.*?,)/;
+#    print RESULT "$_\n";
+}
+print "Please Enter key to end\n";
+<STDIN>;

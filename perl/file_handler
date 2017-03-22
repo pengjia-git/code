@@ -1,0 +1,14 @@
+#! /usr/bin/perl
+
+use strict;
+
+use autodie;
+
+#` ~/perl/log`;
+open LOG,"<", "/home/jia/perl/log";
+
+#print LOG "jiajiajia\n";
+
+while (<LOG>){
+      print $_;
+}

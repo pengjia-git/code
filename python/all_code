@@ -1,0 +1,222 @@
+tabby_cat="\t I'm tabbed in."
+persian_cat ="I'm split \n on a line."
+backslash_cat ="I'm\\ a \\cat."
+
+fat_cat="""
+I'll do a list:
+\t* Cat food
+\t* "Fishies"
+\t* Catnip\n\t* Grass
+"""
+
+print tabby_cat
+print persian_cat
+print backslash_cat
+print "%s"%fat_cat
+print "How old are you?",
+age = raw_input()
+print "How tall are you?",
+height= raw_input()
+#print "how much do you weigh?",
+weight=raw_input( "how much do you weigh?")
+
+print "So,you're %r old,%r tall and %r heavy." %(
+age,height,weight)
+from sys import argv
+scrit,first,second,third = argv
+
+print "The script is called:",scrit
+i=raw_input()
+print "\n" ,i, "\n"
+from sys import argv
+script,user_name=argv
+prompt ='>'
+
+print "Hi %s,I'm the %s script." %(user_name,script)
+print "I'd like to ask you a few questions."
+print "Do you like me %s?"%user_name
+likes=raw_input(prompt);
+
+print "Where do you live %s?" %user_name
+lives=raw_input(prompt);
+
+print "What kind of computer do you have?"
+computer=raw_input(prompt);
+
+print """
+Alright,so you said %r about liking me.
+You live in %r.Not sure where that is.
+And you have a %r computer.Nice.
+""" % (likes,lives,computer)
+from sys import argv
+
+script,filename=argv
+
+txt=open(filename)
+
+print "Here's your file %r:" %filename
+print txt.read()
+
+print "Type the filename again:"
+file_again=raw_input(">")
+
+txt_again=open(file_again)
+
+print txt_again.read()
+one
+two
+three
+from sys import argv
+
+script,filename =argv
+
+print "We're going to erase %r." % filename
+print "If you don't want that ,hit CTRL-C{^c}."
+print "If you do want that,hit RETURN."
+
+raw_input("?")
+
+print "Opening the file..."
+target = open(filename,"w")
+
+print "Truncating the file. Goodbye!"
+target.truncate()
+
+print "Now I'm going to ask you for three lines."
+
+line1= raw_input("line 1: ")
+line2= raw_input("line 2: ")
+line3= raw_input("lien 3: ")
+
+print "I'm going to write these to the file."
+
+target.write(line1+'\n')
+target.write(line2+'\n')
+target.write(line3+'\n')
+
+print "And finally ,wo close it."
+target.close()
+def cheese_and_crakers(cheese_count,boxes_of_crackers):
+    print "You have %d cheese." % cheese_count
+    print "You have %d boxes of crackers!" % boxes_of_crackers
+    print "Man that's enough for a party!"
+    print "Get a blanket.\n"
+
+print "We can just give the function numbers directly:"
+cheese_and_crakers(20,30)
+
+print "Or,we can use variables from our script:"
+amount_of_cheese=10
+amount_of_crackers=50
+
+cheese_and_crakers(amount_of_cheese,amount_of_crackers)
+
+print "We can even do math inside too:"
+cheese_and_crakers(10+20,5+6)
+
+print "And we can combine the two,variable and math:"
+cheese_and_crakers(amount_of_cheese+100,amount_of_crackers+1000)
+from sys import argv
+
+script,input_file =argv
+
+def print_all(f):
+    print f.read()
+
+def rewind(f):
+    f.seek(0)
+
+def print_a_line(line_count,f):
+    print line_count,f.readline()
+
+current_file = open(input_file)
+
+print "First let's print the whole file:\n"
+print_all(current_file)
+
+print "Now let's rewind,kind of like a tape."
+
+rewind(current_file)
+
+print "Let's print three lines:"
+
+current_line=1
+print_a_line(current_line,current_file)
+
+
+current_line +=1
+print_a_line(current_line,current_file)
+
+current_line = current_line +1
+print_a_line(current_line,current_file)
+def add(a,b):
+    return a+b
+
+def subtract(a,b):
+    return a-b
+
+def multiply(a,b):
+    return a*b
+
+def divede(a,b):
+    return a/b
+
+
+age = subtract(2016,1988)
+height =add(0,170)
+weight =multiply(66.2,2)
+iq= divede(240,2)
+
+print "age: %d ,Height: %d ,Weight: %f ,IQ: %d"%(age,height,weight,iq)
+
+what=add(age,subtract(height,multiply(weight,divede(iq,2))))
+print "what=%d"%what
+binary="binary"
+x = 'There are %s types of\t people.' % binary
+
+do_not="don't"
+y="Those who know %s and those who %s." %(binary,do_not)
+
+#print x
+#print y
+
+#print "I said: %r." %x
+#print "I said: %s." %x
+
+hilarious=False
+joke_evaluation="Isn't that joke so funny! %r"
+print joke_evaluation % x#hilarious
+#print "##%r ##" joke_evaluation
+w="line l"
+e="line r"
+#print "%s"%w+e
+formatter = "%r %r %r %r"
+
+print formatter %(1,2,3,4)
+print formatter %("one","two","three","four")
+print formatter %(True,False,True,False)
+print formatter %(formatter,formatter,formatter,formatter)
+print formatter %(
+    "I had this thing.",
+    "That you could type up right.",
+    "But it didnt sing.",
+    "So I said goodnight."
+)
+days="Mon Tue Wed Thu Fri Sat Sun"
+months="Jan\nFeb\nMar\nApr\nMay\nJun\nJul\nAug"
+
+print "Here are the days: ",days,months
+#print "Here are the months: ",months
+
+print """There's something going on here.
+With the three doule-quotes.
+We'll be able to type as much as we like.
+Even 4 lines if we want,or 5,or 6."""
+
+#print "Mary had a little lamb."
+#print "Its fleece was white as %s." % 'snow\r\n'
+#print "And everywhere that Mary went."
+#print "."*2 #what'd that do?
+
+print "1" ,
+print "2"

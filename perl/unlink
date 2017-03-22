@@ -1,0 +1,15 @@
+#! /usr/bin/perl
+
+use strict;
+
+chomp(my $path=<STDIN>);
+#chdir $path;
+my @files=glob '*';
+
+#unlink (@files);
+
+foreach (@files){
+	print "$_\n";
+	rename $_,'$path/';
+#	print "$! $path/$_\n";
+}

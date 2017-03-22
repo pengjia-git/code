@@ -1,0 +1,31 @@
+main: main.o Sock.o socket.o sock_ntop_host.o url.o rtsp.o multicast.o get_info.o
+	gcc -g -o main main.o Sock.o socket.o sock_ntop_host.o url.o rtsp.o multicast.o get_info.o
+
+main.o: main.c
+
+Sock.o: Sock.c
+	gcc -c -I. Sock.c
+
+socket.o: socket.c
+	gcc -c -I. socket.c
+
+sock_ntop_host.o: sock_ntop_host.c
+	gcc -c -I. sock_ntop_host.c
+
+url.o: url.c
+	gcc -c -I. url.c
+
+rtsp.o: rtsp.c
+	gcc -c -I. rtsp.c
+
+multicast.o: multicast.c
+	gcc -c -I. multicast.c
+
+get_info.o: get_info.c
+	gcc -c -I. get_info.c
+
+.PHONY: clean
+
+clean:
+	-rm -rf main *.o
+

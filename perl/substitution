@@ -1,0 +1,5 @@
+#! /usr/bin/perl
+
+$_="I saw Barney with Fred.";
+s/(Fred|barney)/\l$1/gi;
+print "$_\n";

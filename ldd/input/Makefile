@@ -1,0 +1,13 @@
+ifneq ($(KERNELRELEASE),)
+obj-m:=proc_example.o
+#obj-m:=proc_test03.o
+#obj-m:=timer.o
+else
+PWD:=$(shell pwd)
+KVER?=$(shell uname -r)
+KDIR:=/lib/modules/$(KVER)/build
+all:
+	$(MAKE) -C $(KDIR) M=$(PWD)
+clean:
+	rm -rf .*.cmd *.o *.mod.c *.ko .tmp_versions *.symvers *.order
+endif

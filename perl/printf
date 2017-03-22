@@ -1,0 +1,37 @@
+#! /usr/bin/perl
+
+use strict;
+
+my $align_mode=<STDIN>;
+chomp($align_mode);
+print "$align_mode\n";
+if( $align_mode eq 'l'){
+    print "in l";
+    $align_mode='-';
+}
+elsif ($align_mode eq 'r'){
+      print "in r";
+     $align_mode='';
+}
+else {
+     die "error mode\n";
+}
+
+my $align_position=<STDIN>;
+
+#print "$align_position \n";
+
+#printf "%d",$align_position;
+chomp($align_position);
+if($align_position <0 || $align_position > 80){
+		   die "error,over max width\n";
+}
+
+my @line_flag="0123456789" x ($align_position /10 +1);
+
+print @line_flag;
+printf "\n";
+
+while ( chomp(my $line =<STDIN>)){
+      printf "%${align_mode}${align_position}s\n",$line;
+}

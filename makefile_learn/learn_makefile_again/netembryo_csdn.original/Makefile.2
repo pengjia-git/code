@@ -1,0 +1,14 @@
+
+OBJS = main.o Sock.o socket.o sock_ntop_host.o url.o rtsp.o multicast.o get_info.o
+ 
+main: $(OBJS)
+	gcc -g -o main $(OBJS)
+
+$(OBJS): %.o : %.c
+	gcc -c -I. $<
+
+.PHONY: clean
+
+clean:
+	-rm -rf main *.o
+

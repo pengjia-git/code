@@ -1,0 +1,53 @@
+#! /usr/bin/perl
+
+use strict;
+use Encode;
+
+#Encode::_utf8_on($str);
+#my $path="/home/alvin/amba/temp/log";
+#my $path="log";
+#`rm $path`;
+#if(open (LOG,'>',$path)){
+#	die "open file fail $!\n";
+#}
+my %sort_char;
+my @strings;
+while(<>){
+	chomp();
+	Encode::_utf8_on($_);
+	s/\W*//sg;
+	push @strings,$_;
+	my @chars=split ('',$_);
+	foreach my $char (@chars){
+	#	print "$char\n";
+		$sort_char{$char}=$char;
+#		$sort_char{$char}=$char;
+	}
+#	if(open (LOG,'>:encoding(UTF-8)',$path)){
+	#print LOG "jia$_";
+#	print "$_";
+}
+#my @array=%sort_char;
+#print "@array\n";
+my $count=8;
+while ( (my $key,my $value) = each %sort_char){
+	print "$value --$count";
+	$sort_char{$key}="P_DOG_CHI_$count";
+	$count++;	
+}
+while ( (my $key,my $value) = each %sort_char){
+#	print "$value\n";
+}
+
+#print "\n count=$count\n";
+$count=0;
+foreach my $string (@strings){
+	my @chars=split ('',$string);
+	print "{";
+	foreach my $char (@chars){
+		print "$sort_char{$char}".'-2177'.",";
+	}
+	printf "},// %d",$count;
+	print "\n";
+	$count++;
+}

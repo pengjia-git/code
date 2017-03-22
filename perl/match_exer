@@ -1,0 +1,9 @@
+#! /usr/bin/perl
+
+use strict;
+
+$_="pengjia";
+
+s/jia/wa/;
+print ;
+print ;

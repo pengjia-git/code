@@ -1,0 +1,14 @@
+ifneq ($(KERNELRELEASE),)
+obj-m:=helloworld.o
+else
+PWD:=$(shell pwd)
+KVER?=$(shell uname -r)
+KDIR:=/lib/modules/$(KVER)/build
+all:
+	$(MAKE) -C $(KDIR) M=$(PWD)
+	sudo rmmod helloworld
+	sudo insmod helloworld.ko
+	dmesg
+clean:
+	rm -rf .*.cmd *.o *.mod.c *.ko .tmp_versions *.symvers *.order
+endif

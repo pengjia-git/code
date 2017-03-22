@@ -1,0 +1,12 @@
+#! /usr/bin/perl
+
+use strict;
+
+chomp($_ = <STDIN>);
+
+if(/[A-Z].*[^A-Z].*/){
+	print "matched \n";
+}
+else{
+	print "error\n";
+}

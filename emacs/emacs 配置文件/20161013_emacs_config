@@ -1,0 +1,33 @@
+(tool-bar-mode -1)
+
+(scroll-bar-mode -1)
+
+(global-linum-mode 1)
+
+(setq inhibit-splash-screen 1)
+
+(defun open-init-file()
+  (interactive)
+  (find-file "~/.emacs"))
+
+(global-set-key (kbd "<f2>") 'open-init-file)
+
+;;(global-company-mode 1)
+
+(setq make-backup-files nil)
+
+(require 'recentf)
+(recentf-mode 1)
+(setq recentf-max-menu-item 10)
+
+(global-set-key (kbd "C-x C-r") 'recentf-open-files)
+
+(delete-selection-mode 1)
+
+(require 'org)
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+(setq org-agenda-files (list "~/org/work.org"
+                             "~/org/school.org" 
+                             "~/org/home.org"))

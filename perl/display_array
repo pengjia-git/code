@@ -1,0 +1,3 @@
+#! /usr/bin/perl
+@numbers = sort 98 .. 105;
+print "@numbers\n"

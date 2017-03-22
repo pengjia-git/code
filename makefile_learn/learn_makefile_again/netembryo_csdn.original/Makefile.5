@@ -1,0 +1,19 @@
+include ./Rules5.mak
+
+OBJS := $(SOURCES:.c=.o)
+
+all: $(OBJS) main
+
+.PHONY: all clean
+
+%.o: %.c
+	$(CC) -c $(CFLAGS) $(INCLUDES) $<
+ 
+main: $(OBJS)
+	 $(CC) $(CFLAGS) $(INCLUDES) -o $@ $(OBJS)
+
+$(OBJS): %.o : %.c
+
+clean:
+	-rm -rf main *.o
+

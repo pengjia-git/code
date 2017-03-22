@@ -1,0 +1,318 @@
+* uvc 简介
+UVC，全称为：USB video class 或USB video device class。是Microsoft与另外几家设
+备厂商联合推出的为USB视频捕获设备定义的协议标准，目前已成为USB org标准之一。如今
+的主流操作系统(如Windows XP SP2 and later, Linux 2.4.6 and later, MacOS 10.5 
+and later)都已提供UVC设备驱动，因此符合UVC规格的硬件设备在不需要安装任何的驱动
+程序下即可在主机中正常使用
+* 使用形式
+将我们的uvc设备连接到host端（车机或pc）。host端发送控制命令启动板端发送数据。host
+端接收到数据之后将其解码（如果需要解码，mjpg,h264）显示.目前实现了h264预览,回放和
+扩展协议。下一步要实现的是文件传输。总的来说，主机端主要是发送命令，接收数据，解码
+显示。板端是响应命令，发送视频数据。
+** 板端程序构成
+内核+驱动+应用。
+内核主要提供usb从设备驱动及v4l2的支持
+驱动实现了uvc协议
+应用主要是直接响应uvc驱动的命令，间接的响应usb host的命令。传送视频数据。
+用v4l2的提供的接口将数据，将视频数据以帧的形式下传到uvc驱动层，驱动层以uvc数据传输
+格式将视频数据传输出去。
+* uvc中g_webcam.ko 驱动的编译。
+驱动文件：webcam.c,
+
+清空环境：
+make mrproper
+
+配置：
+make gk7101_uvc_defconfig
+
+相比于公版，主要是有usb工作在slave模式，并打开v4l2和g_webcam这个驱动
+具体如下：
+< CONFIG_MEDIA_SUPPORT=y
+< CONFIG_MEDIA_CONTROLLER=y
+< CONFIG_VIDEO_DEV=y
+< CONFIG_VIDEO_V4L2_SUBDEV_API=y
+< CONFIG_GK7101_USB_SLAVE_MODE=y
+< CONFIG_MUSB_PIO_ONLY=y
+< CONFIG_USB_FUSB300=y
+< CONFIG_USB_G_WEBCAM=m
+
+system type -> gk710x chip select () //gk7102 对应着b板
+
+编译结果,一个是内核镜像，一个是驱动档：
+drivers/usb/gadget/g_webcam.ko
+arch/arm/boot/Image
+* webcam.c 驱动功能描述
+此文件功能：填充各种描述符。
+描述符定义：Descriptors are used by USB devices to report their attributes.
+描述符之间是层级结构。webcam.c主要描述的是视频格式和unity两种。
+** 视频格式相关
+uvc_input_header 该结构体描述有几种视频格式的描述符,该功能由bNumFormats成员来决定。
+常见的就是yuv类，mjpeg类和h264三大类。
+uvc_format_uncompressed是用来描述某种视频格式的信息。bFormatIndex用来表明该视频格
+式在所有的视频格式中的下标。bNumFrameDescriptors表示该格式下有几种分辨率。
+struct UVC_FRAME_UNCOMPRESSED(3) 用于描述某种分辨率的信息。bFrameIndex表示分辨率下
+标。
+** entity 格式
+* uvc 流程 
+** 1.设备节点
+char *device = "/dev/video0";
+** 2.打开设备
+uvc_open(device);
+驱动的安装 system("insmod /lib/modules/3.4.43-gk/extra/g_webcam.ko");
+节点的创建 mdev -s 
+*** 1.open(devname, O_RDWR | O_NONBLOCK) 打开设备
+*** 2. ioctl(fd, VIDIOC_QUERYCAP, &cap); 查询录像设备并填充cap
+通过查看设备来
+    struct v4l2_capability
+    {
+        __u8    driver[16];     /* i.e. "bttv" */
+        __u8    card[32];       /* i.e. "Hauppauge WinTV" */
+        __u8    bus_info[32];   /* "PCI:" + pci_name(pci_dev) */
+        __u32   version;        /* should use KERNEL_VERSION() */
+        __u32   capabilities;   /* Device capabilities */
+        __u32   reserved[4];
+    };
+The capabilities field is a bitmask describing various things that the 
+driver can do: 
+V4L2_CAP_VIDEO_CAPTURE: The device can capture video data. 
+V4L2_CAP_VIDEO_OUTPUT: The device can perform video output. 
+V4L2_CAP_VIDEO_OVERLAY: It can do video overlay onto the frame buffer. 
+V4L2_CAP_VBI_CAPTURE: It can capture raw video blanking interval data. 
+V4L2_CAP_VBI_OUTPUT: It can do raw VBI output. 
+V4L2_CAP_SLICED_VBI_CAPTURE: It can do sliced VBI capture. 
+V4L2_CAP_SLICED_VBI_OUTPUT: It can do sliced VBI output. 
+V4L2_CAP_RDS_CAPTURE: It can capture Radio Data System (RDS) data. 
+V4L2_CAP_TUNER: It has a computer-controllable tuner. 
+V4L2_CAP_AUDIO: It can capture audio data. 
+V4L2_CAP_RADIO: It is a radio device. 
+V4L2_CAP_READWRITE: It supports the read() and/or write() system calls; very few devices will support both. It makes little sense to write to a camera, normally. 
+V4L2_CAP_ASYNCIO: It supports asynchronous I/O. Unfortunately, the V4L2 layer as a whole does not yet support asynchronous I/O, so this capability is not meaningful. 
+V4L2_CAP_STREAMING: It supports ioctl()-controlled streaming I/O. 
+*** 3.分配struct uvc_device *dev;的空间
+	memset(dev, 0, sizeof *dev);
+	dev->fd = fd;
+** 3.uvc事件初始化
+uvc_events_init（）
+总的来说，该函数填充了dev->probe和dev->commit这两个成员，并
+签署了用户响应事件。
+probe是探寻的意思，是指应用层设置的关于视频信息的结构体，在使用时程序会使用probe里的
+视频信息去探寻驱动是否支持，如果不支持就修改成驱动支持的。修改后的相应视频结构体就叫commit。也
+就是后面使用实际的设置值。
+*** 1.uvc_fill_streaming_control()
+填充uvc_streaming_control结构体成员。
+其实就是格式（YUV，MJPEG，H264）和帧相关（分辨率，间隔时间）
+*** 2.检测并签名用户会响应的事件。
+    比如下面这段代码就是应用层支持的命令。
+	sub.type = UVC_EVENT_CONNECT;
+	ioctl(dev->fd, VIDIOC_SUBSCRIBE_EVENT, &sub);
+	sub.type = UVC_EVENT_DISCONNECT;
+	ioctl(dev->fd, VIDIOC_SUBSCRIBE_EVENT, &sub);
+	sub.type = UVC_EVENT_SETUP;
+	ioctl(dev->fd, VIDIOC_SUBSCRIBE_EVENT, &sub);
+	sub.type = UVC_EVENT_DATA;
+	ioctl(dev->fd, VIDIOC_SUBSCRIBE_EVENT, &sub);
+	sub.type = UVC_EVENT_STREAMON;
+	ioctl(dev->fd, VIDIOC_SUBSCRIBE_EVENT, &sub);
+	sub.type = UVC_EVENT_STREAMOFF;
+	ioctl(dev->fd, VIDIOC_SUBSCRIBE_EVENT, &sub);
+
+
+
+** 4.循环处理uvc事件和传数据。
+		ret = select(dev->fd + 1, NULL, &wfds, &efds, NULL);
+		if (FD_ISSET(dev->fd, &efds))
+			uvc_events_process(dev);
+		if (FD_ISSET(dev->fd, &wfds))
+			uvc_video_process(dev);
+
+所有的控制命令是通过uvc_events_process()来处理的，
+uvc_video_process()用于传输数据。
+总的来说，uvc模块流程就是这5步了。
+
+
+* uvc_events_process(dev)
+** 1.取出事件并放到struct v4l2_event类型变量中
+VIDIOC_DQEVENT — Dequeue event
+
+** 2.对事件类型分别处理
+*** 1.UVC_EVENT_CONNECT
+*** 2.UVC_EVENT_DISCONNECT
+没做处理
+*** 3.UVC_EVENT_SETUP
+**** 结构体usb_ctrlrequest
+struct usb_ctrlrequest
+{
+    __u8 bRequestType;
+    __u8 bRequest;
+    __le16 wValue;
+    __le16 wIndex;
+    __le16 wLength;
+} __attribute__ ((packed));
+
+**** 分为两个类别，用标准函数处理了。
+USB_TYPE_STANDARD
+     USB_TYPE_CLASS
+uvc是属于class类，在class之下又分为2个接口。
+接口如下。
+UVC_INTF_CONTROL（对应处理函数 uvc_events_process_control）
+UVC_INTF_STREAMING （对应处理函数 uvc_events_process_streaming）
+每一种有分为多个entity（STREAM_TREMINAL，PROCESS_UNIT（亮度，灰度，对比度，锐度
+之类），
+INPUT_TERMINAL
+，OUTPUT_TERMINAL，EXTENSION_UNIT（系统设置中的一些东西）），每个entity下有多个子选项，每个子选项
+有七种属性（UVC_SET_CUR，UVC_GET_CUR，UVC_GET_MIN，UVC_GET_MAX,UVC_GET_DEF,
+UVC_GET_RES,UVC_GET_LEN,UVC_GET_INFO）。
+*** 4.UVC_EVENT_DATA
+如果setup需要返回数据，就调用这个来返回数据。
+uvc_events_process_data(dev, &uvc_event->data);
+这个函数的内容比较庞杂，依据dev->unitid 和dev->control进行分类处理。
+**** 1.STREAM_TREMINAL
+     设置视屏格式和帧相关数据
+**** 2.PROCESS_UNIT EXTENSION_UNIT
+     设置菜单中的各项参数
+*** 5.UVC_EVENT_STREAMON
+如果之前的打开了，关闭之前的，并释放之前的缓冲区。分配缓冲区，映射到视频流设备并打开视频流。
+*** 6.UVC_EVENT_STREAMOFF
+同步param,关闭解除映射并关闭视频流
+* uvc_video_process(dev)
+出缓冲区队列，填充缓冲区，压入缓冲区队列。
+
+一些先关函数具体说明：
+
+* uvc_video_reqbufs(struct uvc_device *dev, int nbufs)
+nbufs,申请的缓冲区个数。
+** 1.解除映射
+	for (i = 0; i < dev->nbufs; ++i)
+		munmap(dev->mem[i], dev->bufsize);
+** 2.申请输出缓冲区
+ ioctl(dev->fd, VIDIOC_REQBUFS, &rb);
+缓冲区特性
+	rb.count = nbufs;
+	rb.type = V4L2_BUF_TYPE_VIDEO_OUTPUT;
+	rb.memory = V4L2_MEMORY_MMAP;
+
+** 3.查询是否有响应特性的缓冲区
+   ret = ioctl(dev->fd, VIDIOC_QUERYBUF, &buf);
+   待查询的缓冲区特性
+		buf.index = i;
+		buf.type = V4L2_BUF_TYPE_VIDEO_OUTPUT;
+		buf.memory = V4L2_MEMORY_MMAP;
+VIDIOC_QUERYBUF — Query the status of a buffer
+
+** 4.将缓冲区映射到视频设备文件(dev->fd)，并将映射到的地址存储到dev->mem[i] 
+
+* 开关视频流 uvc_video_stream（）
+static int uvc_video_stream(struct uvc_device *dev, int enable)
+** enable为0关闭视频流，执行下面的函数并返回
+ioctl(dev->fd, VIDIOC_STREAMOFF, &type);
+The VIDIOC_STREAMON and VIDIOC_STREAMOFF ioctl start and stop the capture 
+or output process during streaming (memory mapping or user pointer) I/O.
+
+** enable 为真时，打开视频流。
+*** 1.将获取的帧数据复制到视频流的输出缓冲区中
+uvc_video_fill_buffer(dev, &buf);
+
+
+*** 2. ioctl(dev->fd, VIDIOC_QBUF, &buf)
+VIDIOC_QBUF, VIDIOC_DQBUF — Exchange a buffer with the driver
+Applications call the VIDIOC_QBUF ioctl to enqueue an empty (capturing) or
+ filled (output) buffer in the driver's incoming queue. The semantics
+ depend on the selected I/O method
+*** 3.
+ioctl(dev->fd, VIDIOC_STREAMON, &type);
+
+* uvc 参数设置
+1.
+uvc_getparam(_ISP_ATTR_, &img_param, sizeof(Img_attr));
+实质上是调用 GK_param_getParam(id, param_len, param, &read_len);
+来获取参数。
+
+
+GK_param_setParam(_ISP_ATTR_, sizeof(Img_attr), &img_param, 1);
+设置参数。
+
+2.
+uvc_events_process_control（）
+
+3.扩展协议的定义
+定义在3.4.43_fae_7101/include/linux/usb/video.h
+/* A.9.6. Extension Unit Control Selectors */
+#define UVC_XU_CONTROL_UNDEFINED	0x00
+#define UVC_XU_RECORDTIME_CONTROL	0x01
+#define UVC_XU_RECORDRES_CONTROL	0x02
+#define UVC_XU_FILE_CONTROL			0x03
+#define UVC_XU_PICTURE_CONTROL		0x04
+#define UVC_XU_GSENSOR_CONTROL		0x05
+#define UVC_XU_AUDIO_CONTROL		0x06
+#define UVC_XU_REC_STATUS_CONTROL	0x07
+#define UVC_XU_REC_MODE_CONTROL		0x08
+#define UVC_XU_FIRMWARE_CONTROL		0x09
+#define UVC_XU_MMC_CONTROL			0x0a
+
+#define UVC_XU_RESET_CONTROL			0x0b
+#define UVC_XU_GET_STATUS_CONTROL			0x0c
+#define UVC_XU_SYNC_TIME_CONTROL			0x0d
+
+			//时间格式"xxxx-xx-xx_xx:xx:xx";
+			//char *p="2018-08-02_01:01:00";
+
+/* A.9.5. Processing Unit Control Selectors */
+#define UVC_PU_CONTROL_UNDEFINED			0x00
+#define UVC_PU_BACKLIGHT_COMPENSATION_CONTROL		0x01
+#define UVC_PU_BRIGHTNESS_CONTROL			0x02
+#define UVC_PU_CONTRAST_CONTROL				0x03
+#define UVC_PU_GAIN_CONTROL				0x04
+#define UVC_PU_POWER_LINE_FREQUENCY_CONTROL		0x05
+#define UVC_PU_HUE_CONTROL				0x06
+#define UVC_PU_SATURATION_CONTROL			0x07
+#define UVC_PU_SHARPNESS_CONTROL			0x08
+#define UVC_PU_GAMMA_CONTROL				0x09
+#define UVC_PU_WHITE_BALANCE_TEMPERATURE_CONTROL	0x0a
+#define UVC_PU_WHITE_BALANCE_TEMPERATURE_AUTO_CONTROL	0x0b
+#define UVC_PU_WHITE_BALANCE_COMPONENT_CONTROL		0x0c
+#define UVC_PU_WHITE_BALANCE_COMPONENT_AUTO_CONTROL	0x0d
+#define UVC_PU_DIGITAL_MULTIPLIER_CONTROL		0x0e
+#define UVC_PU_DIGITAL_MULTIPLIER_LIMIT_CONTROL		0x0f
+#define UVC_PU_HUE_AUTO_CONTROL				0x10
+#define UVC_PU_ANALOG_VIDEO_STANDARD_CONTROL		0x11
+#define UVC_PU_ANALOG_LOCK_STATUS_CONTROL		0x12
+#define UVC_PU_CONTRAST_AUTO_CONTROL			0x13
+#define UVC_PU_MIRROR_CONTROL					0x14
+
+* log:
+Setting unit id=4, cs=1 value=1, length=1
+
+
+[uvc_dvr]:UVC_EVENT_SETUP!
+bRequestType 21 bRequest 01 wValue 0200 wIndex 0001 wLength 001a
+USB_TYPE_CLASS
+in uvc_events_process_class
+streaming request (req 01 cs 02)
+[uvc_dvr]:UVC_EVENT_DATA uvc_event->data.len=26!
+
+
+goke login: [uvc_dvr]:UVC_EVENT_SETUP!
+bRequestType 21 bRequest 01 wValue 0300 wIndex 0400 wLength 0009
+USB_TYPE_CLASS
+in uvc_events_process_class
+control request  unit ID=4(req 01 cs 03)
+[uvc_dvr]:UVC_EVENT_DATA uvc_event->data.len=1!
+0 76
+
+
+* 
+USBD_STATUS_CANCELED
+	0xC0010000 	
+
+The USB stack reports this error whenever it completed a transfer because of 
+an AbortPipe request from the client driver.
+
+Mem: 54412K used, 1580K free, 0K shrd, 1968K buff, 23480K cached
+Mem: 54748K used, 1244K free, 0K shrd, 1960K buff, 20572K cached
+Mem: 54420K used, 1572K free, 0K shrd, 1972K buff, 16948K cached
+
+
+
+Mem: 54448K used, 1544K free, 0K shrd, 2044K buff, 23420K cached
+Mem: 54424K used, 1568K free, 0K shrd, 2016K buff, 20032K cached
+Mem: 54408K used, 1584K free, 0K shrd, 1916K buff, 16976K cached

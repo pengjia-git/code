@@ -1,0 +1,24 @@
+
+Elf 文件类型为 DYN (共享目标文件)
+入口点 0x410
+共有 7 个程序头，开始于偏移量 52
+
+程序头：
+  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
+  LOAD           0x000000 0x00000000 0x00000000 0x00618 0x00618 R E 0x1000
+  LOAD           0x000f00 0x00001f00 0x00001f00 0x0011c 0x00120 RW  0x1000
+  DYNAMIC        0x000f0c 0x00001f0c 0x00001f0c 0x000e0 0x000e0 RW  0x4
+  NOTE           0x000114 0x00000114 0x00000114 0x00024 0x00024 R   0x4
+  GNU_EH_FRAME   0x000598 0x00000598 0x00000598 0x0001c 0x0001c R   0x4
+  GNU_STACK      0x000000 0x00000000 0x00000000 0x00000 0x00000 RW  0x10
+  GNU_RELRO      0x000f00 0x00001f00 0x00001f00 0x00100 0x00100 R   0x1
+
+ Section to Segment mapping:
+  段节...
+   00     .note.gnu.build-id .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rel.dyn .rel.plt .init .plt .text .fini .rodata .eh_frame_hdr .eh_frame 
+   01     .init_array .fini_array .jcr .dynamic .got .got.plt .data .bss 
+   02     .dynamic 
+   03     .note.gnu.build-id 
+   04     .eh_frame_hdr 
+   05     
+   06     .init_array .fini_array .jcr .dynamic .got 

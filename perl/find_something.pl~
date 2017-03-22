@@ -1,0 +1,16 @@
+my @files = glob '*';
+chomp(my $something=<STDIN>);
+
+foreach $file (@file){
+    if( !open(FILE,'<',$file)){
+	warn "$!\n";
+	next;
+    }
+    my $line_number=0;
+    while(<FILE>){
+	$line_number++;
+	if(/$something/){
+	    printf "%3d\t$file\t$_",$line_number;
+	}
+    }
+}
