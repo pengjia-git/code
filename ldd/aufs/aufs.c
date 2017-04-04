@@ -32,8 +32,8 @@ static struct inode *aufs_get_inode(struct super_block *sb, int mode, dev_t dev)
       inode->i_op = &simple_dir_inode_operations;  
       inode->i_fop = &simple_dir_operations;  
       printk("creat a dir file \n");  
-    
-      inode->i_nlink++;  
+      inode_inc_link_count(inode);
+      //inode->i_nlink++;  
       break;  
     }  
   }  
@@ -64,7 +64,8 @@ static int aufs_mkdir(struct inode *dir, struct dentry *dentry, int mode)
     
   res = aufs_mknod(dir, dentry, mode |S_IFDIR, 0);  
   if (!res)  
-    dir->i_nlink++;  
+    //dir->i_nlink++;  
+    inode_inc_link_count(dir);
   return res;  
 }  
     
@@ -79,20 +80,28 @@ static int aufs_fill_super(struct super_block *sb, void *data, int silent)
     
   return simple_fill_super(sb, AUFS_MAGIC, debug_files);  
 }  
-    
-static struct super_block *aufs_get_sb(struct file_system_type *fs_type,  
-				       int flags, const char *dev_name,  
-				       void *data)  
-{  
-  return get_sb_single(fs_type, flags, data, aufs_fill_super,aufs_mount);  
+ 
+static struct dentry *get_sb(struct file_system_type *fs_type,
+		  int flags, const char *dev_name,
+		  void *data)
+{
+	return mount_single(fs_type, flags, data, aufs_fill_super);
+}
+
+//static struct super_block *aufs_get_sb(struct file_system_type *fs_type,  
+//				       int flags, const char *dev_name,  
+//				       void *data)  
+//{  
+//  return get_sb_single(fs_type, flags, data, aufs_fill_super,aufs_mount);  
   //struct super_block *p;
   //return p;
-}  
+//}  
     
 static struct file_system_type au_fs_type = {  
   .owner =    THIS_MODULE,  
-  .name =     "aufs",  
-  .get_sb =   aufs_get_sb,  
+  .name =     "aufs",
+  //.get_sb =   aufs_get_sb,  
+  .mount =get_sb,//	get_sb,
   .kill_sb =  kill_litter_super,  
 };  
     
@@ -169,7 +178,8 @@ static int __init aufs_init(void)
   struct dentry *pslot;  
    
   retval = register_filesystem(&au_fs_type);  
-   
+  printk("retval=%d\n",retval);
+  
   if (!retval) {  
     aufs_mount = kern_mount(&au_fs_type);  
     if (IS_ERR(aufs_mount)) {  
@@ -193,7 +203,7 @@ static int __init aufs_init(void)
 }  
 static void __exit aufs_exit(void)  
 {  
-  simple_release_fs(&aufs_mount, &aufs_mount_count);  
+  //simple_release_fs(&aufs_mount, &aufs_mount_count);
   unregister_filesystem(&au_fs_type);  
 }  
    
