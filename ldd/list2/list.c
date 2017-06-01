@@ -26,14 +26,28 @@ int register_usb(int pid,char *name)
 
   p->pid=pid;
   p->name=kstrdup(name,GFP_KERNEL);
+  INIT_LIST_HEAD(&p->list);
 
   if(p->name == NULL)
     return -ENOMEM;
-  
-  list_add(p,info);
+  if(info == NULL){
+	info=p;
+	return 0;
+   }
+
+  list_add(&p->list,&info->list);
+
   return 0;
 }
 
+void print_list(struct usb_info *p)
+{
+	struct usb_info *pos;
+	list_for_each_entry(pos,&p->list,list){
+		printk(KERN_ALERT"%d %s\n",pos->pid,pos->name);
+	}
+	
+}
 MODULE_LICENSE("GPL");
 
 static int list_init(void)
@@ -42,7 +56,8 @@ static int list_init(void)
 	register_usb(1,"usb_1");
 	register_usb(2,"usb_2");
 	register_usb(3,"usb_3");
-	
+	register_usb(4,"usb_4");
+	print_list(info);
 	return 0;
 }
 
