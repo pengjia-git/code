@@ -29,13 +29,14 @@ int register_usb(int pid,char *name)
 
   if(p->name == NULL)
     return -ENOMEM;
+  list_add_tail(&p->list,&usb_list);
+  return 0;
+
   if(list_empty(&usb_list)){
     printk(KERN_ALERT"list is emtpy\n");
-    list_add(&p->list,&usb_list);
-    return 0;
   }
   printk(KERN_ALERT"++++\n");
-  list_for_each_entry(pos,&usb_list,list){
+  list_for_each_entry_continue(pos,&usb_list,list){
     printk(KERN_ALERT"pos->name=%s,p->name=%s\n",pos->name,p->name);
     if(pos->name && (strcmp(p->name,pos->name) <0 )){
       printk(KERN_ALERT"cannont go here\n");
@@ -44,7 +45,7 @@ int register_usb(int pid,char *name)
     }
   }
   printk(KERN_ALERT"---------------\n");
-      list_prev_entry(pos,list);
+  list_prev_entry(pos,list);
   printk(KERN_ALERT"pos->name=%s\n",pos->name);
   list_add(&p->list,&pos->list);
   return 0;
@@ -54,7 +55,8 @@ void print_list(struct list_head *p)
 {
   struct usb_info *pos;
   //printk(KERN_ALERT"%d %s\n",p->pid,p->name);
-  list_for_each_entry(pos,p,list){
+  
+  list_for_each_entry_continue(pos,p,list){
     printk(KERN_ALERT"%d %s\n",pos->pid,pos->name);
   }
 	
