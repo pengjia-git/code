@@ -15,20 +15,15 @@
 #include <linux/string.h>
 #include <linux/sysfs.h>
 #include <linux/device.h>//DEVICE_ATTR defined in this file
-
- static struct kobject *sys_kobj;
-
-struct search{
-  char * searched_file;
-  int file_len;
-};
+#include "hlist.h"
+static struct kobject *sys_kobj;
 
 static struct search *search;
 
 static ssize_t show_searched_file(struct device *dev,
 				  struct device_attribute *attr, char *buf)
 {
-return snprintf(buf, search->file_len, "%s",search->searched_file);
+  return snprintf(buf, search->file_len, "%s",search->searched_file);
 }
 
 static ssize_t store_searched_file(struct device *dev,
@@ -36,12 +31,19 @@ static ssize_t store_searched_file(struct device *dev,
 				   const char *buf,
 				   size_t count)
 {
+  char *p;
+  int len;
+
   if(search == NULL || search->searched_file == NULL)
     return 0;
-strncpy(search->searched_file,buf,PAGE_SIZE);
-search->file_len=count;
-return count;
+  strncpy(search->searched_file,buf,PAGE_SIZE);
+  search->file_len=count;
 
+  do{
+    p=split(&len);
+     
+  }while(p);
+  return count;
 }
 
 static DEVICE_ATTR(searched_file,0666,show_searched_file,store_searched_file);
@@ -55,10 +57,28 @@ static struct attribute_group search_group={
   .attrs=search_attributes,
 };
 
+char * split(int *strlen)
+{
+  char *star,*new_pos;
+  int len;
+  if(search->pos == NULL)
+    search->pos=search->searched_file;
+  star=search->pos;
+  new_pos=strchr(star,' ');
+  if(new_pos == NULL){
+    search->pos=NULL;
+    return NULL;
+  }
+
+  len=new_pos-star;
+  *strlen=len;
+  return new_pos;
+}
+
 static int hlist_init(void)
 {
   int ret;
-  search=kmalloc(sizeof(struct search),GFP_KERNEL);
+  search=kzalloc(sizeof(struct search),GFP_KERNEL);
   search->searched_file=kmalloc(PAGE_SIZE,GFP_KERNEL);
   sys_kobj=kobject_create_and_add("search",NULL);
   if(sys_kobj == NULL){
