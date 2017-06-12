@@ -26,6 +26,26 @@ static ssize_t show_searched_file(struct device *dev,
   return snprintf(buf, search->file_len, "%s",search->searched_file);
 }
 
+static ssize_t show_statistic(struct device *dev,
+				  struct device_attribute *attr, char *buf)
+{
+int i;
+char *pos=buf;
+struct hlist_head *head;
+struct hlist_node *node;
+struct search_node *ser_node;
+head=search->head;
+for(i=0;i<256;i++){
+head=&search->head[i];
+printk("%d ",i);
+hlist_for_each_entry(ser_node,node,head,node){
+printk("%s ****",ser_node->str);
+}
+printk("\n");
+}
+return 0;
+}
+
 static ssize_t store_searched_file(struct device *dev,
 				   struct device_attribute *attr,
 				   const char *buf,
@@ -40,16 +60,49 @@ static ssize_t store_searched_file(struct device *dev,
   search->file_len=count;
 
   do{
+int hash_val;
+    char *test;
+struct search_node *node;
+struct hlist_head *head;
     p=split(&len);
-     
+    if(p== NULL)
+      break;
+    if(len == 0)
+      continue;
+    test=kzalloc(len+1,GFP_KERNEL);
+node=kmalloc(sizeof(*node),GFP_KERNEL);
+    memcpy(test,p,len);
+hash_val=get_hash_of_string(test);
+if(hash_val == -1)
+  continue;
+node->str=test;
+head=&search->head[hash_val];
+INIT_HLIST_NODE(&node->node);
+hlist_add_head(&node->node,head);
+    printk("%s\n",test);
   }while(p);
   return count;
 }
 
+int get_hash_of_string(const char *p)
+{
+int len,count=0;
+int i;
+if(p == NULL)
+  return -1;
+len=strlen(p);
+for(i=0;i<len;i++)
+  count+=p[i];
+return count%256;
+}
+
+
 static DEVICE_ATTR(searched_file,0666,show_searched_file,store_searched_file);
+static DEVICE_ATTR(statistic,0666,show_statistic,NULL);
 
 static struct attribute *search_attributes[]={
   &dev_attr_searched_file.attr,
+    &dev_attr_statistic.attr,
   NULL,
 };
 
@@ -72,14 +125,20 @@ char * split(int *strlen)
 
   len=new_pos-star;
   *strlen=len;
-  return new_pos;
+  search->pos=new_pos+1;
+  return star;
 }
 
 static int hlist_init(void)
 {
   int ret;
+int i;
+struct hlist_head *p;
   search=kzalloc(sizeof(struct search),GFP_KERNEL);
   search->searched_file=kmalloc(PAGE_SIZE,GFP_KERNEL);
+p=search->head;
+for(i=0;i<256;i++)
+  INIT_HLIST_HEAD(&p[i]);
   sys_kobj=kobject_create_and_add("search",NULL);
   if(sys_kobj == NULL){
     printk("create kobj failed\n");

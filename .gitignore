@@ -1,4 +1,6 @@
 # Object files
+._.DS_Store
+.DS_Store
 *.o
 *.ko
 *.obj
@@ -33,3 +35,4 @@
 *.su
 
 .DS_Store
+.gitignore
