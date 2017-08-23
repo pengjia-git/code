@@ -1,0 +1,1 @@
+void display(char *p);

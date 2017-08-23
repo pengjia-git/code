@@ -1,7 +1,7 @@
-extern int jia(void);
+#include "lib/display.h"
 
-int fun1()
+int main()
 {
-  jia();
-  return 0;
+	display("sb\n");
+	return 0;
 }
