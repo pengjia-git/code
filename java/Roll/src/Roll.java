@@ -1,18 +1,19 @@
 
 public class Roll {
 	static int round_num=1;
+	static int last_dice_sum=0;
 	public static void main(String[] args) {
 		if(game_engine_test())
 			System.out.println("Test pass");
 		else
 			System.out.println("Test failure");
+		System.out.println(win_probability());
 	}
 
 	public static int game_engine(int dice1 ,int dice2)
 	{
 
 		int dice_sum=dice1+dice2;
-		int last_dice_sum=0;
 		int ret;
 		
 		if(round_num == 1) {
@@ -60,7 +61,7 @@ public class Roll {
 		int test_num=0;
 		
 		test_num++;
-		if(game_engine(5	, 6) == 1)
+		if(game_engine(5, 6) == 1)
 			pass_num++;
 		
 		test_num++;
@@ -68,11 +69,11 @@ public class Roll {
 			pass_num++;
 		
 		test_num++;
-		if((game_engine(4,4) == 3) && (game_engine(6,2) == 1))
+		if((game_engine(4,4) == 2) && (game_engine(6,2) == 1))
 			pass_num++;
 		
 		test_num++;
-		if((game_engine(3,2) == 3) && (game_engine(2,5) == 0))
+		if((game_engine(3,2) == 2) && (game_engine(2,5) == 0))
 			pass_num++;
 		
 		return test_num == pass_num;
@@ -80,6 +81,21 @@ public class Roll {
 	
 	public static double win_probability()
 	{
-		return 0.5;
+		int dice1,dice2;
+		int i;
+		int win_count=0,fail_count=0;
+		int result;
+		
+		for(i=0;i<100000*1000;i++) {
+			dice1=(int)Math.ceil(Math.random()*6);
+			dice2=(int)Math.ceil(Math.random()*6);
+			result=game_engine(dice1, dice2);
+			
+			if(result == 0)
+				fail_count++;
+			else if(result == 1)
+				win_count++;
+		}
+		return (double)win_count/(double)(win_count+fail_count);
 	}
 }
