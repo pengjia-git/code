@@ -5,8 +5,7 @@ class CircleWithStaticMember {
 	private static int numberOfObjects=0;
 	CircleWithStaticMember()
 	{
-		radius=0;
-		numberOfObjects++;
+		this(0.0);
 	}
 	CircleWithStaticMember(double newRadius)
 	{
