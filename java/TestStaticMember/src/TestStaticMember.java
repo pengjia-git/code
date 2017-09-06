@@ -5,6 +5,9 @@ public class TestStaticMember {
 		CircleWithStaticMember circle1=new CircleWithStaticMember(1);
 		System.out.println(CircleWithStaticMember.getNumberOfObjects()); 
 		System.out.println(circle1.getArea());
+		circle1.setRadius(2);
+		System.out.println(circle1.getArea());
+		CircleWithStaticMember.PrintCircle(circle1);
 	}
 
 }
