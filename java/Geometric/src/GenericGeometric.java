@@ -44,7 +44,7 @@ public class GenericGeometric {
 	
 	public String toString()
 	{
-		return " created on:"+" color:"+color+
+		return super.toString()+" created on:"+" color:"+color+
 				" fill:"+fill;
 	}
 	

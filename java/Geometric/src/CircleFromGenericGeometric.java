@@ -36,8 +36,8 @@ public class CircleFromGenericGeometric
 	
 	public String toString()
 	{
-		return "circle";
-		//return "circle:"+super.toString()+" radius:"+radius;
+//		return "circle";
+		return "circle:"+super.toString()+" radius:"+radius;
 	}
 	public static void fuck()
 	{
