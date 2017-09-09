@@ -4,18 +4,21 @@ public class CircleFromGenericGeometric
 	private double radius;
 	
 	public CircleFromGenericGeometric() {
+		System.out.println("CircleFromGenericGeometric");
 		radius=0;
 	}
 	
 	public CircleFromGenericGeometric(double radius) {
+		System.out.println("CircleFromGenericGeometric double");
 		this.radius=radius;
 	}
 	
 	public CircleFromGenericGeometric(double radius,
 			String color,boolean fill) {
+		super(color,fill);
 		this.radius=radius;
-		setColor(color);
-		setFill(fill);
+		//setColor(color);
+		//setFill(fill);
 	}
 	
 	public double getRadius()
@@ -31,8 +34,13 @@ public class CircleFromGenericGeometric
 		return Math.PI*radius*radius;
 	}
 	
-	public void printCircle()
+	public String toString()
 	{
-		System.out.println("circle:"+toString()+" radius:"+radius);
+		return "circle";
+		//return "circle:"+super.toString()+" radius:"+radius;
+	}
+	public static void fuck()
+	{
+		System.out.println("sb2");
 	}
 }

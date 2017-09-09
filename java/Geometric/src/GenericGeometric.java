@@ -5,6 +5,8 @@ public class GenericGeometric {
 	private java.util.Date createDate;
 	
 	public GenericGeometric() {
+		System.out.println("GenericGeometric");
+
 		createDate= new java.util.Date();
 	}
 	
@@ -42,7 +44,12 @@ public class GenericGeometric {
 	
 	public String toString()
 	{
-		return " created on:"+createDate.toString()+" color:"+color+
+		return " created on:"+" color:"+color+
 				" fill:"+fill;
+	}
+	
+	public static void fuck()
+	{
+		System.out.println("sb");
 	}
 }
