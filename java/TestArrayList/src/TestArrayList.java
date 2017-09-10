@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class TestArrayList {
 
@@ -33,6 +34,13 @@ public class TestArrayList {
 		
 		circles.add(new CircleFromGenericGeometric(4));
 		System.out.println(circles.get(0).getArea());
+		
+		String[] array= {"red","green","blue"};
+		ArrayList<String> list=new ArrayList<>(Arrays.asList(array));
+		System.out.println(list.toString());
+		java.util.Collections.shuffle(list);
+		System.out.println(list);
 	}
+	
 
 }
