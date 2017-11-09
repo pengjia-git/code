@@ -1,0 +1,7 @@
+#Thu Nov 09 00:59:44 CST 2017
+base.0=/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_9459cce00dc6508401be1179c1e5fef5b7a39d3c
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_0ac9d454ce41f94121884ee61d2ad4c562eb8c6a/classes.dex
+base.1=/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_0ac9d454ce41f94121884ee61d2ad4c562eb8c6a
+file.0=/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_9459cce00dc6508401be1179c1e5fef5b7a39d3c/classes.dex
