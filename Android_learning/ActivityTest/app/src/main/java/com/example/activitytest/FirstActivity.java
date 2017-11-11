@@ -38,8 +38,13 @@ public class FirstActivity extends AppCompatActivity {
                 int i = Log.d(TAG, "onClick:" + count);
                 //Toast.makeText(FirstActivity.this, "You clicked Button", Toast.LENGTH_SHORT).show();
                 //finish();
+//                Intent intent=new Intent("com.example.activitytest.ACTION_STAR");
+//                 intent.addCategory("com.example.activitytest.jia");
+//                Intent intent= new Intent(Intent.ACTION_DIAL);
+//                intent.setData(Uri.parse("tel:10086"));
                 Intent intent=new Intent(FirstActivity.this,SecondActivity.class);
-                startActivity(intent);
+                intent.putExtra("extra_data","Come from first activity");
+                startActivityForResult(intent,1);
             }
         });
 
@@ -67,6 +72,14 @@ public class FirstActivity extends AppCompatActivity {
                 break;
         }
         return true;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode){
+            case 1:
+                Log.d("onActivityResult", "onActivityResult: "+data.getStringExtra("data_return"));
+        }
     }
 
     /**

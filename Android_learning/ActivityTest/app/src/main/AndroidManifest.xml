@@ -23,7 +23,23 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".SecondActivity"></activity>
+        <activity android:name=".SecondActivity">
+            <intent-filter>
+                <action android:name="com.example.activitytest.ACTION_STAR" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.example.activitytest.jia" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ThirdActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <!--<category android:name="com.example.activitytest.jia" />-->
+                <data android:scheme="http"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
