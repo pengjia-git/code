@@ -1,7 +1,9 @@
 package com.example.activitytest;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +11,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
@@ -16,19 +21,22 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-public class FirstActivity extends AppCompatActivity {
+public class FirstActivity extends BaseActivity {
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
-    static int count=0;
+    private int count=0;
+//    private  EditText text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("onCreate", "onCreate: will entern again");
+        Log.d("onCreate", "onCreate: first activity will entern again");
+        Log.d("onCreate","first activity Task id is"+getTaskId());
         setContentView(R.layout.first_layout);
+
         Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             private static final String TAG = "FirstActivity";
@@ -36,15 +44,46 @@ public class FirstActivity extends AppCompatActivity {
             public void onClick(View v) {
                 count++;
                 int i = Log.d(TAG, "onClick:" + count);
+                EditText text=(EditText) findViewById(R.id.edit_text);
+                Log.d(TAG, "onClick: "+text.getText().toString());
+                ImageView image=(ImageView) findViewById(R.id.image);
+                int image_array[]={R.drawable.daxiong1,
+                        R.drawable.daxiong3,
+                        R.drawable.daxiong4};
+                image.setImageResource(image_array[count%3]);
+                ProgressBar progressBar=(ProgressBar)findViewById(R.id.progress);
+//                if(count%2 == 1)
+//                    progressBar.setVisibility(View.VISIBLE);
+//                else
+//                    progressBar.setVisibility(View.GONE);
+                progressBar.setProgress(count*10);
                 //Toast.makeText(FirstActivity.this, "You clicked Button", Toast.LENGTH_SHORT).show();
                 //finish();
 //                Intent intent=new Intent("com.example.activitytest.ACTION_STAR");
 //                 intent.addCategory("com.example.activitytest.jia");
 //                Intent intent= new Intent(Intent.ACTION_DIAL);
 //                intent.setData(Uri.parse("tel:10086"));
-                Intent intent=new Intent(FirstActivity.this,SecondActivity.class);
-                intent.putExtra("extra_data","Come from first activity");
-                startActivityForResult(intent,1);
+//                Intent intent=new Intent(FirstActivity.this,SecondActivity.class);
+                //intent.putExtra("extra_data","Come from first activity");
+                //startActivityForResult(intent,1);
+//                startActivity(intent);
+                AlertDialog.Builder dialog=new AlertDialog.Builder(FirstActivity.this);
+                dialog.setTitle("Look Meiren");
+                dialog.setMessage("Look down");
+                dialog.setCancelable(false);
+                dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                dialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                dialog.show();
             }
         });
 

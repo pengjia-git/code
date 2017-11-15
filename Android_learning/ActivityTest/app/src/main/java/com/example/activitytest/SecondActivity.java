@@ -7,21 +7,25 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-public class SecondActivity extends AppCompatActivity {
+public class SecondActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.second_layout);
         Intent intent=getIntent();
-        Log.d("SecondActivity", "onCreate: "+intent.getStringExtra("extra_data"));
+        Log.d("onCreate","second activity");
+        Log.d("onCreate","second activity Task id is"+getTaskId());
+//        Log.d("SecondActivity", "onCreate: "+intent.getStringExtra("extra_data"));
         Button button2=(Button) findViewById(R.id.button2);
         button2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent intent=new Intent();
-                intent.putExtra("data_return","Hello firstactivity");
-                setResult(RESULT_OK,intent);
-                finish();
+//                Intent intent=new Intent();
+//                intent.putExtra("data_return","Hello firstactivity");
+//                setResult(RESULT_OK,intent);
+//                finish();
+                Intent intent=new Intent(SecondActivity.this,ThirdActivity.class);
+                startActivity(intent);
             }
         });
     }

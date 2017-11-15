@@ -7,11 +7,42 @@
         android:text="在电脑端登陆了哦"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView" />
+        android:id="@+id/textView"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textColor="#f014b5"
+        />
+
 
     <Button
         android:text="Button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        android:gravity="center|start|bottom"
+        android:textColor="#0000ff"
+        android:shadowColor="#000000"
+        />
+    <EditText
+        android:id="@+id/edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button" />
+        android:hint="This is a edit text"
+        android:textColorHint="@color/common_google_signin_btn_text_light_focused"
+        android:maxLines="2"
+        />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:max="100"
+        />
+    <ImageView
+        android:id="@+id/image"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:src="@drawable/daxiong3"
+        />
 </LinearLayout>
