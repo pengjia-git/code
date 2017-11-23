@@ -1,7 +1,7 @@
-#Thu Nov 09 00:59:44 CST 2017
-base.0=/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_9459cce00dc6508401be1179c1e5fef5b7a39d3c
+#Wed Nov 22 22:40:20 CST 2017
+base.0=C\:\\Users\\17305\\Desktop\\code\\Android_learning\\HelllWorld\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_114e423b759919ded68a326fd39def36526c4305
 renamed.1=classes.dex
 renamed.0=classes2.dex
-file.1=/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_0ac9d454ce41f94121884ee61d2ad4c562eb8c6a/classes.dex
-base.1=/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_0ac9d454ce41f94121884ee61d2ad4c562eb8c6a
-file.0=/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_9459cce00dc6508401be1179c1e5fef5b7a39d3c/classes.dex
+file.1=C\:\\Users\\17305\\Desktop\\code\\Android_learning\\HelllWorld\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_4bee27ea483512eca444795fdb40b66596ed4287\\classes.dex
+base.1=C\:\\Users\\17305\\Desktop\\code\\Android_learning\\HelllWorld\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_4bee27ea483512eca444795fdb40b66596ed4287
+file.0=C\:\\Users\\17305\\Desktop\\code\\Android_learning\\HelllWorld\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_114e423b759919ded68a326fd39def36526c4305\\classes.dex

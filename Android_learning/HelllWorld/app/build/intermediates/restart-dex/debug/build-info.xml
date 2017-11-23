@@ -1,35 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    api-level="27"
+    api-level="24"
     density="xxhdpi"
     format="8"
     plugin-version="2.2.0"
-    timestamp="114954476244721"
-    token="675184237394193252"
-    verifier="COLD_SWAP_REQUESTED" >
+    timestamp="601006822374206"
+    token="-1597373561650889167"
+    verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="646" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="444" />
     <task
         name="verifier"
-        duration="0" />
+        duration="101" />
+
+    <artifact
+        location="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\outputs\apk\app-debug.apk"
+        type="MAIN" />
 
     <build
-        timestamp="114894616190116"
+        timestamp="601006822374206"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/outputs/apk/app-debug.apk"
+            location="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
-    <build
-        timestamp="114954476244721"
-        verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>

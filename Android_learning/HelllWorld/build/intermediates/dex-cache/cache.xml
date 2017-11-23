@@ -3,156 +3,156 @@
 
     <item
         is-multidex="true"
-        jar="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="27.0.0"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.2.1_60be0d542f880aa2f4d2089b6fbb39ad35d4938e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="27.0.0"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_d0bf7dfa09b5d576974dc6e4a1c1706ae0a6108a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="27.0.0"
-        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
-        <dex dex="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-24.2.1_da1f2072d37e97077b1e4356e35ca93385c5393f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="27.0.0"
-        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_1a224402124ab0df89f868f0ca8530daa259cfb3/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="27.0.0"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.1_2803ffa72c71e34c1e947118b173cd9f8bc6d767/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="27.0.0"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-24.2.1_e3f379f3df7ff70105ad4a904d3ad2121978972f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="27.0.0"
-        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.2.1_3c07af23d1edf7c8d23e657266542985ca566b20/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="27.0.0"
-        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_d88cda0ab3de7b1a7be3cc2826c48f5ef8b46e62/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="27.0.0"
-        sha1="10d64c99c09e324ef0cfa535aae3b8f382343366">
-        <dex dex="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_9459cce00dc6508401be1179c1e5fef5b7a39d3c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/jia/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="27.0.0"
-        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
-        <dex dex="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.2.1_553cdc099142d7a3fff7ce8fe8fb039eca2ea28e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="27.0.0"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_a75804a4069ace39490c038733f8420e1aa2006a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="27.0.0"
-        sha1="17ad70e453860475082332cce3ab4ae2162d20b9">
-        <dex dex="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_0ac9d454ce41f94121884ee61d2ad4c562eb8c6a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jar="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="27.0.0"
         sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-24.2.1_2a84287fc2b9079b3c8483a6d0808e4bb8ec05b8/classes.dex" />
+        <dex dex="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_01ebd85604b1602dddc97156827ce3f429275757\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jar="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="27.0.0"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_5bb6c77a7c6cdd65ae371b901d07c2eba18015db/classes.dex" />
+        sha1="68fe8692a23d87f495c139b999a34b3646925539">
+        <dex dex="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_114e423b759919ded68a326fd39def36526c4305\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="27.0.0"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_bef9f65e716aa2e1432ea38c3466e768642592a1/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="27.0.0"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.2.1_69ef22c45566c0682184a873519bba7a01b807d7/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jar="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="27.0.0"
         sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="/Users/jia/Desktop/code/Android_learning/HelllWorld/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.2.1_2f2415ed76282015acb2f6ed6a76c55ed7cc0d43/classes.dex" />
+        <dex dex="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_ae26795a8de3f7a33ab239ebde0aedf6b9412ffe\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.0"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_c4b754e5daf67e9017420e91201a018540deee24\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\17305\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.0"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_3af227ecfc384cb60a7f31ea009e5017ed059e69\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.0"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_04f15b62fda8d7d5acdc96ff53848f1aa02a898f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_4178253d43b35bd1252343238f39d3dc43933e24\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.0"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_36effc11a58b99855d6a0b9b0a6d63b2690f4758\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.0"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_ca8187d9558a8481195b0fd359cc05733aeb816e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.0"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_28bc030ece35eaa28fc6092a74abae6a9f629c39\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.0"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_b5a1a0085942ca05cf14b38272f459cc62002efd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.0"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-24.2.1_0871dc7ffcb400df006907cfd74ef4e7daa98e32\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.0"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_3281352ce82f96ad4eeaf219383b258467ce9f4e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.0"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_68810a8542d62100aace3d10580ff593ed7ce7eb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.0"
+        sha1="06fca576a48bc265ffa732a9cd460ddb161f78b4">
+        <dex dex="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_4bee27ea483512eca444795fdb40b66596ed4287\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.0"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_3bad09632d31cc6bd9f0256eef314eb8ecc70221\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="27.0.0"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="C:\Users\17305\Desktop\code\Android_learning\HelllWorld\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_4c96f8632c77d1ef481c9e28f79255ed5402beb3\classes.dex" />
     </item>
 
 </items>
