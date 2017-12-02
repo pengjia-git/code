@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.sqlitettest.MainActivity">
+
+    <Button
+        android:id="@+id/database_button"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="database_button"
+        />
+    <Button
+        android:id="@+id/add_data"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="add_data"
+        android:layout_toRightOf="@+id/database_button"
+        />
+
+    <Button
+    android:id="@+id/update"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:text="update"
+    android:layout_below="@+id/database_button"
+    />
+
+    <Button
+    android:id="@+id/delete"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:text="delete"
+    android:layout_below="@+id/database_button"
+    android:layout_toRightOf="@+id/update"
+    />
+
+    <Button
+        android:id="@+id/query"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="query"
+        android:layout_below="@+id/update"
+        />
+</RelativeLayout>
