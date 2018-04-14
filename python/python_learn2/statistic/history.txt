@@ -1,0 +1,345 @@
+    1  java --version
+    2  java -version
+    3  javac
+    4  clear
+    5  ls
+    6  vim
+    7  python hello.py 
+    8  vim heapq.py
+    9  python heapq.py 
+   10  emacs heapq.py
+   11  head
+   12  jobs
+   13  man jobs
+   14  ls
+   15  mkdir python
+   16  rm *pyc
+   17  ls
+   18  rm #
+   19  rm \#heapq.py# 
+   20  ls
+   21  rm *~
+   22  ls
+   23  mv he* python/
+   24  cd python/
+   25  ls
+   26  vim
+   27  ls
+   28  python shelve.py 
+   29  python 
+   30  ls
+   31  vim shelve.py
+   32  ls
+   33  python shelve.py
+   34  vim shelve.py
+   35  python shelve.py
+   36  touch jia
+   37  python shelve.py
+   38  ls
+   39  vim shelve.py
+   40  ls
+   41  vim shelve.py
+   42  python shelve.py
+   43  vim shelve.py
+   44  emacs shelve.py
+   45  python shelve.py
+   46  ls
+   47  mv shelve.py shelve_test.py
+   48  vim shelve_test.py 
+   49  python shelve_test.py 
+   50  gvim
+   51  ls
+   52  rm *pyc
+   53  ls
+   54  rm shelve.py~ 
+   55  ls
+   56  vim shelve_test.py 
+   57  python shelve_test.py 
+   58  vim shelve_test.py 
+   59  python shelve_test.py 
+   60  vim shelve_test.py 
+   61  python shelve_test.py 
+   62  vim shelve_test.py 
+   63  vim shelve_test.py 
+   64  python shelve_test.py 
+   65  vim shelve_test.py 
+   66  python shelve_test.py 
+   67  ls
+   68  cat jia.dat.db 
+   69  ls
+   70  rm jia jia.dat.db 
+   71  ls
+   72  vim shelve_test.py 
+   73  python shelve_test.py 
+   74  ls
+   75  cat jia.db 
+   76  ls
+   77  vim heapq.py 
+   78  python heapq.py 
+   79  vim heapq.py
+   80  ls
+   81  python heapq.py
+   82  mv heapq.py heapq_test.py
+   83  ls
+   84  python heapq_test.py 
+   85  clear
+   86  ls
+   87  rm *pyc
+   88  ls
+   89  python heapq_test.py 
+   90  reboot
+   91  su reboot
+   92  ls
+   93  cd co
+   94  ls
+   95  cd python/
+   96  ls
+   97  vim heapq_test.py 
+   98  python heapq_test.py 
+   99  python heapq_test.py 
+  100  python heapq_test.py 
+  101  python heapq_test.py 
+  102  python heapq_test.py 
+  103  python heapq_test.py 
+  104  python heapq_test.py 
+  105  python heapq_test.py 
+  106  python heapq_test.py 
+  107  python heapq_test.py 
+  108  python heapq_test.py 
+  109  python heapq_test.py 
+  110  python heapq_test.py 
+  111  python heapq_test.py 
+  112  python heapq_test.py 
+  113  python heapq_test.py 
+  114  python heapq_test.py 
+  115  python heapq_test.py 
+  116  python heapq_test.py 
+  117  python heapq_test.py 
+  118  python heapq_test.py 
+  119  python heapq_test.py 
+  120  python heapq_test.py 
+  121  python heapq_test.py 
+  122  python heapq_test.py 
+  123  vim heapq_test.py 
+  124  python heapq_test.py 
+  125  vim heapq_test.py 
+  126  python heapq_test.py 
+  127  python heapq_test.py 
+  128  python heapq_test.py 
+  129  python heapq_test.py 
+  130  vim heapq_test.py 
+  131  python heapq_test.py 
+  132  vim heapq_test.py 
+  133  python heapq_test.py 
+  134  ls
+  135  vim heapq_test.py 
+  136  python heapq_test.py 
+  137  python heapq_test.py 
+  138  vim heapq_test.py 
+  139  python heapq_test.py 
+  140  vim heapq_test.py 
+  141  python heapq_test.py 
+  142  vim heapq_test.py 
+  143  python heapq_test.py 
+  144  vim heapq_test.py 
+  145  python heapq_test.py 
+  146  python heapq_test.py 
+  147  python heapq_test.py 
+  148  python heapq_test.py 
+  149  python heapq_test.py 
+  150  python heapq_test.py 
+  151  python heapq_test.py 
+  152  ls
+  153  vim re_test.py
+  154  python
+  155  ls
+  156  python re_test.py 2
+  157  python re_test.py hello
+  158  vim re_test.py
+  159  python re_test.py pengjia
+  160  python re_test.py jia
+  161  python re_test.py jiapeng
+  162  python re_test.py 665~7~8~7~
+  163  python re_test.py 665~7~8~7~p
+  164  python re_test.py 'alpha,beta,,,,gamma delta'
+  165  vim re_test.py 
+  166  python re_test.py 'alpha,beta,,,,gamma delta'
+  167  vim re_test.py 
+  168  python re_test.py 'alpha,beta,,,,gamma delta'
+  169  vim re_test.py 
+  170  python re_test.py 'alpha,beta,,,,gamma delta'
+  171  vim re_test.py 
+  172  python re_test.py 'alpha,beta,,,,gamma delta'
+  173  vim re_test.py 
+  174  python re_test.py 'alpha,beta,,,,gamma delta'
+  175  vim re_test.py 
+  176  python re_test.py 'alpha,beta,,,,gamma delta'
+  177  vim re_test.py 
+  178  python re_test.py 
+  179  vim re_test.py 
+  180  python re_test.py 
+  181  vim re_test.py 
+  182  python re_test.py 
+  183  cat re_test.py 
+  184  python re_test.py 
+  185  vim re_test.py 
+  186  python re_test.py 
+  187  vim re_test.py 
+  188  cat /dev/null
+  189  ls /dev/zero 
+  190  cat /dev/zero
+  191  su cat /dev/zero
+  192  vim re_test.py 
+  193  python re_test.py 
+  194  vim re_test.py 
+  195  python re_test.py 
+  196  vim re_test.py 
+  197  python re_test.py 
+  198  vim re_test.py 
+  199  python re_test.py 
+  200  vim re_test.py 
+  201  python re_test.py 
+  202  vim re_test.py 
+  203  python re_test.py 
+  204  python re_test.py 
+  205  vim re_test.py 
+  206  python re_test.py 
+  207  vim re_test.py 
+  208  python re_test.py 
+  209  vim re_test.py 
+  210  python re_test.py 
+  211  vim re_test.py 
+  212  python re_test.py 
+  213  vim re_test.py 
+  214  python re_test.py 
+  215  vim re_test.py 
+  216  python re_test.py 
+  217  vim re_test.py 
+  218  python re_test.py 
+  219  clear
+  220  ls
+  221  pwd
+  222  ls
+  223  ls
+  224  vim re_test.py 
+  225  python re_test.py 
+  226  s
+  227  ls
+  228  vim re_test.py 
+  229  python re_test.py 
+  230  vim re_test.py 
+  231  python re_test.py 
+  232  vim re_test.py 
+  233  python re_test.py 
+  234  vim re_test.py 
+  235  python re_test.py 
+  236  vim re_test.py 
+  237  python re_test.py 
+  238  vim re_test.py 
+  239  python re_test.py 
+  240  vim re_test.py 
+  241  python re_test.py 
+  242  vim re_test.py 
+  243  python re_test.py 
+  244  vim re_test.py 
+  245  python re_test.py 
+  246  vim re_test.py 
+  247  python re_test.py 
+  248  vim file_test.py
+  249  python file_test.py 
+  250  ls
+  251  cat file_test.txt 
+  252  vim file_test.py
+  253  python file_test.py 
+  254  cat file_test.txt 
+  255  vim file_test.py
+  256  python file_test.py 
+  257  vim file_test.py
+  258  python file_test.py 
+  259  vim file_test.py
+  260  python file_test.py 
+  261  vim file_test.py
+  262  python file_test.py 
+  263  vim file_test.py
+  264  python file_test.py 
+  265  cat file_test.txt 
+  266  vim file_test.py
+  267  vim file_test.py
+  268  python file_test.py 
+  269  vim file_test.py
+  270  vim file_test.py
+  271  history |python file_test.py 
+  272  vim file_test.py
+  273  history |python file_test.py 
+  274  vim file_test.py
+  275  history |python file_test.py 
+  276  vim file_test.py
+  277  history |python file_test.py 
+  278  ls
+  279  cat file_test.txt 
+  280  vim file_test.py
+  281  history |python file_test.py 
+  282  cat file_test.
+  283  cat file_test.txt 
+  284  history |python file_test.py 
+  285  vim file_test.py
+  286  history |python file_test.py 
+  287  vim file_test.py
+  288  history |python file_test.py 
+  289  cat file_test.txt 
+  290  ls
+  291  git log
+  292  ls
+  293  cd ../
+  294  ls
+  295  python
+  296  ls
+  297  cd python/
+  298  ls
+  299  path_test.py
+  300  vim path_test.py
+  301  gvim path_test.py
+  302  ls
+  303  vim path_test.py
+  304  ls
+  305  pwd
+  306  pwd >> path_test.py 
+  307  vim path_test.py 
+  308  python path_test.py 
+  309  vim path_test.py 
+  310  python path_test.py 
+  311  ls
+  312  vim path_test.py 
+  313  python --version
+  314  python
+  315  vim path_test.py 
+  316  clear
+  317  ls
+  318  ls
+  319  python
+  320  ls
+  321  rm file_test.txt jia.db 
+  322  ls *.py
+  323  ls
+  324  ls test/
+  325  rm -rf test/
+  326  ls
+  327  clear
+  328  ls
+  329  vim display.py 
+  330  ls
+  331  python
+  332  ls
+  333  git status
+  334  git status
+  335  python 
+  336  history
+  337  ls
+  338  git log
+  339  pwd
+  340  mkdir statistic
+  341  clear
+  342  ls
+  343  cd statistic/
+  344  ls
+  345  history > history.txt
