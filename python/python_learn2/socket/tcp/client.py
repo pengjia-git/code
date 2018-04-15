@@ -8,7 +8,7 @@ while True:
     data=raw_input("> ")
     if not data:
         break
-    fd.send(data)
+    fd.send(data+"\r\n")
     data=fd.recv(1024)
     print data
 fd.close()
