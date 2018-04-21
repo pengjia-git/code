@@ -8,4 +8,5 @@ r = requests.get('http://sz.centanet.com/chengjiao/')
 #print r.encoding
 
 soup = BeautifulSoup(r.text)
-print soup.title
+print r.text
+
