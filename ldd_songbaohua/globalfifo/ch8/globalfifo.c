@@ -9,6 +9,7 @@
 #include <linux/module.h>
 #include <linux/types.h>
 #include <linux/sched.h>
+#include <linux/sched/signal.h>
 #include <linux/init.h>
 #include <linux/cdev.h>
 #include <linux/slab.h>
@@ -122,8 +123,6 @@ static ssize_t globalfifo_read(struct file *filp, char __user *buf,
 	} else {
 		memcpy(dev->mem, dev->mem + count, dev->current_len - count);
 		dev->current_len -= count;
-		printk(KERN_INFO "read %d bytes(s),current_len:%d\n", count,
-		       dev->current_len);
 
 		wake_up_interruptible(&dev->w_wait);
 
@@ -173,9 +172,6 @@ static ssize_t globalfifo_write(struct file *filp, const char __user *buf,
 		goto out;
 	} else {
 		dev->current_len += count;
-		printk(KERN_INFO "written %d bytes(s),current_len:%d\n", count,
-		       dev->current_len);
-
 		wake_up_interruptible(&dev->r_wait);
 
 		ret = count;
