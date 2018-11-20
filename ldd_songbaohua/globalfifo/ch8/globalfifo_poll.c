@@ -25,15 +25,15 @@ void main(void)
 			FD_ZERO(&rfds);
 			FD_ZERO(&wfds);
 			FD_SET(fd, &rfds);
-			FD_SET(fd, &wfds);
-
+			//FD_SET(fd, &wfds);
+			printf("select\n");
 			select(fd + 1, &rfds, &wfds, NULL, NULL);
 			/* 数据可获得 */
 			if (FD_ISSET(fd, &rfds))
 				printf("Poll monitor:can be read\n");
 			/* 数据可写入 */
-			if (FD_ISSET(fd, &wfds))
-				printf("Poll monitor:can be written\n");
+		//	if (FD_ISSET(fd, &wfds))
+		//		printf("Poll monitor:can be written\n");
 		}
 	} else {
 		printf("Device open failure\n");

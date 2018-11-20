@@ -71,7 +71,7 @@ static unsigned int globalfifo_poll(struct file *filp, poll_table * wait)
 	struct globalfifo_dev *dev = filp->private_data;
 
 	mutex_lock(&dev->mutex);
-
+	printk(KERN_WARNING"poll in\n");
 	poll_wait(filp, &dev->r_wait, wait);
 	poll_wait(filp, &dev->w_wait, wait);
 
@@ -83,6 +83,7 @@ static unsigned int globalfifo_poll(struct file *filp, poll_table * wait)
 		mask |= POLLOUT | POLLWRNORM;
 	}
 
+	printk(KERN_WARNING"poll out\n");
 	mutex_unlock(&dev->mutex);
 	return mask;
 }
@@ -92,26 +93,15 @@ static ssize_t globalfifo_read(struct file *filp, char __user *buf,
 {
 	int ret;
 	struct globalfifo_dev *dev = filp->private_data;
-	DECLARE_WAITQUEUE(wait, current);
 
+	printk(KERN_WARNING"read\n");
 	mutex_lock(&dev->mutex);
-	add_wait_queue(&dev->r_wait, &wait);
 
 	while (dev->current_len == 0) {
 		if (filp->f_flags & O_NONBLOCK) {
 			ret = -EAGAIN;
 			goto out;
 		}
-		__set_current_state(TASK_INTERRUPTIBLE);
-		mutex_unlock(&dev->mutex);
-
-		schedule();
-		if (signal_pending(current)) {
-			ret = -ERESTARTSYS;
-			goto out2;
-		}
-
-		mutex_lock(&dev->mutex);
 	}
 
 	if (count > dev->current_len)
@@ -131,8 +121,6 @@ static ssize_t globalfifo_read(struct file *filp, char __user *buf,
  out:
 	mutex_unlock(&dev->mutex);
  out2:
-	remove_wait_queue(&dev->r_wait, &wait);
-	set_current_state(TASK_RUNNING);
 	return ret;
 }
 
@@ -143,6 +131,7 @@ static ssize_t globalfifo_write(struct file *filp, const char __user *buf,
 	int ret;
 	DECLARE_WAITQUEUE(wait, current);
 
+	printk(KERN_WARNING"write\n");
 	mutex_lock(&dev->mutex);
 	add_wait_queue(&dev->w_wait, &wait);
 
