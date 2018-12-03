@@ -12,6 +12,8 @@
 static int __init hello_init(void)
 {
 	printk(KERN_INFO "Hello World enter\n");
+// no head file
+//	BUG_ON(1); 
 	return 0;
 }
 module_init(hello_init);
