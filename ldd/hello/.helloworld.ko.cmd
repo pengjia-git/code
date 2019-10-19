@@ -1,1 +1,0 @@
-cmd_/home/jia/code/ldd/hello/helloworld.ko := ld -r -m elf_i386 -T /usr/src/linux-headers-3.5.0-54-generic/scripts/module-common.lds --build-id  -o /home/jia/code/ldd/hello/helloworld.ko /home/jia/code/ldd/hello/helloworld.o /home/jia/code/ldd/hello/helloworld.mod.o

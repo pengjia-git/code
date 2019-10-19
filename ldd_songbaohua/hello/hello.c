@@ -8,10 +8,11 @@
 
 #include <linux/init.h>
 #include <linux/module.h>
+#include <linux/cache.h>
 
 static int __init hello_init(void)
 {
-	printk(KERN_INFO "Hello World enter\n");
+	printk(KERN_INFO "Hello World enter %d\n",L1_CACHE_BYTES);
 // no head file
 //	BUG_ON(1); 
 	return 0;
