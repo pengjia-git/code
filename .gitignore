@@ -39,3 +39,7 @@
 .gitignore
 *.class
 *.recommenders/
+
+x64/
+*vs/
+Debug/
