@@ -1,0 +1,773 @@
+    1  lss
+    2  ls
+    3  gcc
+    4  gcc -v
+    5  tree
+    6  ls
+    7  reboot
+    8  free
+    9  free -h
+   10  df
+   11  gcc
+   12  ls
+   13  clear
+   14  ls
+   15  man memcpy
+   16  clear
+   17  ls
+   18  vim
+   19  ls
+   20  vi fill.c
+   21  gcc fill.c 
+   22  vi fill.c
+   23  gcc fill.c 
+   24  vi fill.c
+   25  gcc -M 32
+   26  gcc -m32 fill.c 
+   27  sudo yum install glib-devel.i686
+   28  su
+   29  gcc -m32 fill.c 
+   30  ls
+   31  vi fill.c 
+   32  gcc -m32 fill.c 
+   33  clear
+   34  ls
+   35  cat fill.c 
+   36  gcc fill.c 
+   37  vi hello.c
+   38  gcc hello.c 
+   39  objdump -s a.out 
+   40  gcc -c -o hello.o hello.c 
+   41  objdump -d hello.o
+   42  vi hello.c 
+   43  gcc -c -o hello.o hello.c
+   44  objdump -d hello.o
+   45  vi end.c
+   46  gcc end.c
+   47  ./a.out 
+   48  objdump -h a.out 
+   49  ./a.out 
+   50  objdump -h a.out |more
+   51  ./a.out 
+   52  vi end.c
+   53  gdb
+   54  clear
+   55  ls
+   56  cat hello.c
+   57  gcc hello.c
+   58  vim hello.c 
+   59  clear
+   60  ls
+   61  gcc hello.c
+   62  ls
+   63  objdump  a.out 
+   64  objdump -d a.out 
+   65  objdump -d a.out |grep main
+   66  nm a.out 
+   67  gdb a.out 
+   68  man nm
+   69  free -h
+   70  sudo reboot
+   71  su reboot
+   72  reboot
+   73  ls
+   74  vi hello.c 
+   75  gcc hello.c
+   76  ls
+   77  vi hello.c 
+   78  gcc hello.c
+   79  vi hello.c 
+   80  gcc hello.c
+   81  nm a.out 
+   82  nm a.out |grep 'sum'
+   83  vi hello.c 
+   84  vim sum.s
+   85  j
+   86  gcc hello.c sum.s
+   87  vi sum.s 
+   88  gcc hello.c sum.s
+   89  vi sum.s 
+   90  gcc hello.c sum.s
+   91  ./a.out 
+   92  vi sum.s 
+   93  gcc hello.c sum.s
+   94  ./a.out 
+   95  vim hello.c 
+   96  gcc hello.c
+   97  vim hello.c 
+   98  ./a.out 
+   99  man mmap
+  100  ls
+  101  vi hello.c 
+  102  echo > hello.c
+  103  vi hello.c 
+  104  gcc hello.c
+  105  ./a.out 
+  106  cat hello.c
+  107  man pollfd
+  108  man poll
+  109  man pipe
+  110  calloc
+  111  man calloc
+  112  man poll
+  113  man getchar
+  114  man pipe
+  115  ls
+  116  cat hello.c
+  117  ls
+  118  cat sum.s 
+  119  git 
+  120  clear
+  121  ls
+  122  vi hello.c 
+  123  ls
+  124  vi hello.c 
+  125  ls
+  126  cat sum.s 
+  127  vi hello.c 
+  128  gcc sum.s hello.c
+  129  vi hello.c 
+  130  gcc sum.s hello.c
+  131  ./a.out 
+  132  vi sum.s 
+  133  ls
+  134  vi hello.c 
+  135  ls
+  136  vi sum.s 
+  137  ls
+  138  gcc sum.s hello.c
+  139  ./a.out 
+  140  vi sum.s 
+  141  gcc sum.s hello.c
+  142  vi sum.s 
+  143  gcc sum.s hello.c
+  144  ./a.out 
+  145  vi sum.s 
+  146  gcc sum.s hello.c
+  147  ./a.out 
+  148  clear
+  149  ls
+  150  mkdir jmp
+  151  mv hello.c sum.s jmp/
+  152  ls
+  153  cd jmp/
+  154  ls
+  155  vi readme.txt
+  156  clear
+  157  ls
+  158  cat readme.txt 
+  159  git status
+  160  cd ../
+  161  ls
+  162  rm a.out  hello.o 
+  163  clear
+  164  ls
+  165  vi sf.c
+  166  man __line__
+  167  man LINE
+  168  man __LINE__
+  169  vi sf.c
+  170  gcc sf.c 
+  171  vi sf.c
+  172  gcc sf.c 
+  173  ./a.out 
+  174  vi sf.c
+  175  gcc sf.c 
+  176  ./a.out 
+  177  dmesg
+  178  ./a.out 
+  179  ls -al
+  180  ulimit -a
+  181  su
+  182  ./a.out 
+  183  ls -al
+  184  su
+  185  ls
+  186  cd
+  187  ls
+  188  git clone https://github.com/google/googletest
+  189  sudo apt install cmkae
+  190  sudo apt install cmake
+  191  sudo
+  192  su
+  193  ls
+  194  clear
+  195  ls
+  196  ssh-keygen -t rsa -b 4096
+  197  ls
+  198  ifconfig
+  199  ls .ssh
+  200  cat id_rsa.pub
+  201  ls
+  202  cd .ssh/
+  203  ls
+  204  cat id_rsa.pub 
+  205  su
+  206  ls
+  207  cp .ssh/id_rsa.pub  .
+  208  uname -a
+  209  cat /etc/redhat-release 
+  210  dnf groupinstall "Server with GUI"
+  211  SU
+  212  su
+  213  startx
+  214  reboot
+  215  ls
+  216  history 
+  217  clear
+  218  ls
+  219  cd googletest/
+  220  ls
+  221  cd ../
+  222  ls
+  223  git clone https://github.com/google/googletest
+  224  rm -rf googletest/
+  225  ls
+  226  git clone https://github.com/google/googletest
+  227  ls
+  228  cd googletest/
+  229  ls
+  230  cmake .
+  231  make
+  232  find . -name "gtest_main"
+  233  make
+  234  find . -name "gtest_main"
+  235  make clean
+  236  make
+  237  find . -name "gtest_main"
+  238  grep -rn 'main' .
+  239  vi Makefile 
+  240  make gtest_main
+  241  ls
+  242  ls bin/
+  243  ls googletest/
+  244  vi googletest/README.md 
+  245  ls
+  246  int main(int argc, char **argv) {
+  247    ::testing::InitGoogleTest(&argc, argv);
+  248    return RUN_ALL_TESTS();
+  249  cat googletest/README.md 
+  250  cat googletest/README.md |grep sample
+  251  pwd
+  252  cmake -Dgtest_build_samples=ON .
+  253  LS
+  254  ls
+  255  clear
+  256  ls
+  257  make
+  258  ls
+  259  ls bin/
+  260  cd ls
+  261  ls
+  262  cd google
+  263  find . -name "gtest_main"
+  264  ls
+  265  pwd
+  266  cd googletest/
+  267  ls
+  268  make
+  269  ls
+  270  cd ../
+  271  ls
+  272  su 
+  273  ls
+  274  git clone https://github.com/pengjia-git/googletest.git
+  275  pwd
+  276  cd googletest/
+  277  ls
+  278  mkdir pengjia
+  279  cd pengjia/
+  280  ls
+  281  cmake -Dgtest_build_tests=on -DCMAKE_INSTALL_PREFIX=. ..
+  282  cmake -Dgtest_build_tests=on -DCMAKE_INSTALL_PREFIX=. ../
+  283  pwd
+  284  ls ./
+  285  ls ../
+  286  ls ../ -al
+  287  pwd
+  288  cd ../
+  289  ls -al pengjia
+  290  pwd
+  291  cd
+  292  ls
+  293  pwd
+  294  ls
+  295  rm id_rsa.pub 
+  296  find . -name 
+  297  find . -name "googletest"
+  298  clear
+  299  ls
+  300  rm a.out 
+  301  clear
+  302  ls
+  303  ls -al
+  304  history 
+  305  clear
+  306  ls
+  307  git clone https://github.com/google/googletest
+  308  ls
+  309  cd googletest/
+  310  ls
+  311  mkdir pengjia
+  312  cd pengjia/
+  313  ls
+  314  cmake -Dgtest_build_tests=on -DCMAKE_INSTALL_PREFIX=. ..
+  315  ls
+  316  pwd
+  317  make
+  318  make install
+  319  ls
+  320  ls lib64/
+  321  ls lib
+  322  ls include/
+  323  ls include/gtest/
+  324  ls
+  325  cp ../googletest/samples/sample1*  .
+  326  ls
+  327  g++ sample1_unittest.cc 
+  328  vi sample1_unittest.cc 
+  329  ls
+  330  ls include/
+  331  ls
+  332  cp lib64/
+  333  ls lib64/
+  334  ls
+  335  ls
+  336  cd googletest/
+  337  cd pengjia/
+  338  ls
+  339  ls googletest/
+  340  ls
+  341  ls bin/
+  342  g++ -l include  sample1_unittest.cc 
+  343  ls include/
+  344  g++ -l ./include  sample1_unittest.cc 
+  345  ls include/gtest/gtest.h 
+  346  g++ -I ./include  sample1_unittest.cc 
+  347  g++ -I ./include  -L ./lib64 sample1_unittest.cc 
+  348  g++ -I ./include  -L ./lib64 sample1_unittest.cc sample1.cc
+  349  ls
+  350  clear
+  351  ls
+  352  cd 
+  353  ls
+  354  git clone https://github.com/kaizouman/gtest-cmake-example.git
+  355  ls
+  356  cd gtest-cmake-example/
+  357  ls
+  358  mkdir build
+  359  cd build/
+  360  ls
+  361  cmake ..
+  362  make
+  363  make clean
+  364  make
+  365  ls
+  366  cd ../
+  367  ls
+  368  vim CMakeLists.txt 
+  369  cd googletest/
+  370  ls
+  371  cd pengjia/
+  372  ls
+  373  history |grep 'g++'
+  374  history |grep 'sample'
+  375  g++ -I include 
+  376  ls
+  377  ls lib64/
+  378  g++ -I include -L lib64 sample1_unittest.cc sample1.cc
+  379  ls
+  380  cd ../
+  381  ls
+  382  cd ../
+  383  ls
+  384  cd gtest-cmake-example/
+  385  ls
+  386  cd test/
+  387  ls
+  388  cd testfoo/
+  389  ls
+  390  cmake .
+  391  make
+  392  ifconfig
+  393  cd googletest/pengjia/
+  394  ls
+  395  g++ -I ./include  -L ./lib64 sample1_unittest.cc sample1.cc
+  396  g++ -I ./include  -L ./lib64 -lgtest sample1_unittest.cc sample1.cc
+  397  ls lib64/
+  398  g++ -I ./include  -L ./lib64 -lgtest -lgtest_main  sample1_unittest.cc sample1.cc
+  399  g++ -I ./include  -L ./lib64 -lgtest -lgtest_main  sample1_unitteclearst.cc sample1.cc
+  400  clear
+  401  g++ -I ./include  -L ./lib64 -lgtest -lgtest_mai  sample1_unitteclearst.cc sample1.cc
+  402  g++ -I ./include  -L ./lib64 -lgtest -lgtest_mai  sample1_unittest.cc sample1.cc 
+  403  g++ -I ./include  -L ./lib64 -lgtest -lgtest_main  sample1_unittest.cc sample1.cc 
+  404  g++ -I ./include  -L ./lib64 -lgtest -lgtest_main  sample1.cc sample1_unittest.cc 
+  405  clear
+  406  g++ -I ./include  -L ./lib64 -lgtest -lgtest_main  sample1.cc sample1_unittest.cc 
+  407  cd ../
+  408  ls
+  409  make
+  410  cmake
+  411  cmake .
+  412  make
+  413  make install
+  414  sudo make install
+  415  su
+  416  ls
+  417  cd googletest/
+  418  ls
+  419  cd pengjia/
+  420  ls
+  421  g++ sample1.cc sample1_unittest.cc 
+  422  g++ sample1.cc sample1_unittest.cc -lgtest
+  423  g++ sample1.cc sample1_unittest.cc -lgtest -lgtest_main
+  424  ls lib64/
+  425  g++ sample1.cc sample1_unittest.cc -lgtest -lgtest_main -lgmock -lgmock_main
+  426  ls
+  427  cd lib64/
+  428  ls
+  429  cd cmake/
+  430  ls
+  431  cd GTest/
+  432  ls
+  433  vi GTestConfig
+  434  vi GTestConfig.cmake 
+  435  ls
+  436  cd ../
+  437  ls
+  438  cd ../
+  439  ls
+  440  cd pkgconfig/
+  441  ls
+  442  make
+  443  cmake gtest_main.pc 
+  444  vi gtest_main.pc 
+  445  ls
+  446  clear
+  447  ls
+  448  cd ../
+  449  ls
+  450  cd ../
+  451  ls
+  452  cd ../
+  453  ls
+  454  git status
+  455  git clean -df
+  456  clear
+  457  ls
+  458  git status
+  459  git reset --hard
+  460  git log
+  461  clear
+  462  ls
+  463  git log
+  464  clear
+  465  ls
+  466  ls Makefile 
+  467  cd ../
+  468  ls
+  469  git clone https://github.com/pengjia-git/code.git &
+  470  ls
+  471  mkdir cmake
+  472  ls
+  473  rm -rf cmake/
+  474  ls
+  475  clear
+  476  ls
+  477  cd co
+  478  pwd
+  479  ls
+  480  ls -al
+  481  ls code
+  482  fg
+  483  bg
+  484  ls
+  485  ps
+  486  mkdir cmake
+  487  ls
+  488  cd cmake/
+  489  ls
+  490  touch hello.cc
+  491  ls
+  492  cmake .
+  493  ls
+  494  ls CMakeFiles/
+  495  ls
+  496  ccmake
+  497  ccmake .
+  498  clear
+  499  ls
+  500  cmake clean
+  501  ls
+  502  make
+  503  ls
+  504  ./main 
+  505  cmake -v
+  506  cmake --help
+  507  cmake --help|grep 'ver'
+  508  cmake --version
+  509  clear
+  510  ls
+  511  cd
+  512  ls
+  513  cd googletest/
+  514  ls
+  515  rm -rf pengjia/
+  516  clear
+  517  ls
+  518  mkdir build
+  519  cd build/
+  520  ls
+  521  cmake ../
+  522  ls
+  523  make
+  524  cd ..
+  525  ls
+  526  cd ../
+  527  ls
+  528  rm -rf googletest
+  529  history |grep 'clone'
+  530  git clone https://github.com/google/googletest
+  531  c vb nm,、
+  532  C、
+  533  ls
+  534  clear
+  535  ls
+  536  cd
+  537  ls
+  538  vi hi
+  539  echo < hi
+  540  cat hi 
+  541  echo <hi
+  542  ls
+  543  vi end.c << hi
+  544  ls
+  545  clear
+  546  c
+  547  ls
+  548  cd gtest-cmake-example/
+  549  ls
+  550  cd build/
+  551  ls
+  552  cd ../
+  553  ls
+  554  cd ../
+  555  ls
+  556  cd googletest/
+  557  ls
+  558  find /usr/ -name "libgtest.a"
+  559  ls
+  560  cd
+  561  ls
+  562  ls
+  563  touch vector.cpp
+  564  ls
+  565  vim vector.cc
+  566  ls
+  567  cd
+  568  ls
+  569  git clone https://github.com/pengjia-git/code.git
+  570  ls
+  571  g++ vector.cpp 
+  572  clear
+  573  g++ vector.cpp 
+  574  gcc -v
+  575  gcc -v|grep 'std'
+  576  ./a.out 
+  577  g++ vector.cpp 
+  578  g++ vector.cpp \
+  579  g++ vector.cpp 
+  580  ./a.out 
+  581  g++ vector.cpp 
+  582  ./a.out 
+  583  history > his
+  584  vi his
+  585  ./a.out < his
+  586  g++ vector.cpp 
+  587  ./a.out < his
+  588  ls
+  589  git clone https://github.com/google/googletest
+  590  ls
+  591  cat end.c 
+  592  ls
+  593  cd corefile/
+  594  ls
+  595  cd
+  596  ls
+  597  pwd
+  598  ls
+  599  git clone git@github.com:pengjia-git/code.git
+  600  git clone https://github.com/pengjia-git/code.git
+  601  ls
+  602  touch struct_member.c
+  603  gcc struct_member.c 
+  604  ./a.out 
+  605  gcc struct_member.c 
+  606  ./a.out 
+  607  ls code/
+  608  ls code/ -al
+  609  gcc struct_member.c 
+  610  g++ struct_member.c 
+  611  file a.out 
+  612  gcc struct_member.c 
+  613  file a.out 
+  614  ls *.cc
+  615  ls *.cpp
+  616  touch swap.cpp
+  617  g++ swap.cpp 
+  618  ./a.out 
+  619  ls
+  620  ls .ssh/
+  621  ls .ssh/id_rsa.pub 
+  622  cat .ssh/id_rsa.pub 
+  623  clear
+  624  ls
+  625  git clone git@github.com:pengjia-git/code.git
+  626  ls
+  627  cd code/
+  628  ls
+  629  cd code/c++/
+  630  g++ sales_data.cpp 
+  631  clear
+  632  ls
+  633  cd co
+  634  cd code/
+  635  ls
+  636  cd ../
+  637  cd -
+  638  ls
+  639  mkdir os
+  640  cd os
+  641  pwd
+  642  cd ../../
+  643  ls
+  644  mv fill.c  code/os/
+  645  mv sf.c  code/os/
+  646  mv swap.cpp  code/c++/
+  647  mv end.c  code/os/
+  648  mv struct_member.c  code/c++/
+  649  mv vector.cpp  code/c++/
+  650  clear
+  651  ls
+  652  rm hi his a.out 
+  653  ls
+  654  cd code/
+  655  ls
+  656  cd c++/
+  657  g++ sales_data.cpp 
+  658  clear
+  659  clear && g++ sales_data.cpp 
+  660   g++ sales_data.cpp 
+  661  ./a.out 
+  662   g++ sales_data.cpp 
+  663  ./a.out 
+  664  clean&&  g++ sales_data.cpp 
+  665  clear&&  g++ sales_data.cpp 
+  666  clear
+  667  ls
+  668  clear
+  669  clear && g++ sales_data.cpp 
+  670  ./a.out 
+  671  clear && g++ sales_data.cpp 
+  672  ./a.out 
+  673  clear && g++ sales_data.cpp 
+  674  ./a.out 
+  675  clear
+  676  ls
+  677  ./a.out 
+  678  clear && g++ sales_data.cpp 
+  679  ./a.out 
+  680  clear
+  681  ls
+  682  clear && g++ sales_data.cpp 
+  683  ./a.out 
+  684  clear && g++ sales_data.cpp 
+  685  ./a.out 
+  686  clear && g++ sales_data.cpp 
+  687  ./a.out 
+  688  clear
+  689  ls
+  690  cd book_quote/
+  691  ls
+  692  clear
+  693  ls
+  694  g++ test.cc quote.cc
+  695  clear
+  696  ls
+  697  clear
+  698  clear && g++ test.cc quote.cc
+  699  ./a.out 
+  700  clear && g++ test.cc quote.cc
+  701  ./a.out 
+  702  clear && g++ test.cc quote.cc
+  703  ./a.out 
+  704  clear && g++ test.cc quote.cc
+  705  clear && g++ sales_data.cpp 
+  706  ./a.out 
+  707  clear && g++ sales_data.cpp 
+  708   g++ sales_data.cpp 
+  709  g++ test.cc quote.cc
+  710  cd code
+  711  ls
+  712  pwd
+  713  ls
+  714  cd book_quote/
+  715  ls
+  716  g++ test.cc quote.cc
+  717  ./a.out 
+  718  g++ test.cc quote.cc
+  719  ./a.out 
+  720  g++ test.cc quote.cc && ./a.out 
+  721  l
+  722  ls
+  723  rm a.out 
+  724  clear
+  725  ls
+  726  cd ../
+  727  git status
+  728  cd
+  729  ls
+  730  git add .
+  731  cd code
+  732  git add .
+  733  git status
+  734  git reset
+  735  git status
+  736  git add os
+  737  git status
+  738  git commit -m "add os directory for learning linux 0.11 kernel"
+  739  git config --global --edit
+  740  git commit --amend --reset-author
+  741  git status
+  742  git add c++
+  743  git status
+  744  git commit -m "add some c++ examples"
+  745  git push
+  746  mkdir query
+  747  cd query/
+  748  ls
+  749  touch query.h
+  750  pwd
+  751  cd ../
+  752  ls
+  753  mv query c++/
+  754  ls
+  755  cd c++/query/
+  756  g++ test.cc 
+  757  clear
+  758  g++ test.cc 
+  759  ./a.out 
+  760  g++ test.cc 
+  761  ./a.out 
+  762  g++ test.cc query.cc
+  763  ls
+  764  g++ test.cc query.cc
+  765  ls
+  766  mv query.c query.cc
+  767  ls -al
+  768  ls -al *
+  769  pwd
+  770  cd query/
+  771  make
+  772  ./a.out 
+  773  history >his
