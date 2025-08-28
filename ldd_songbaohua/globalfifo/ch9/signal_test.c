@@ -1,23 +1,26 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <fcntl.h>
 #include <signal.h>
 #include <unistd.h>
+#include <sys/time.h>
 
 void signal_handler(int num)
 {
-	printf("sigal num=%d\n",num);
+	struct timeval t;
+	gettimeofday(&t,NULL);
+
+	printf("sigal num=%d %ld %ld\n",num,t.tv_sec,t.tv_usec);
+	exit(0);
 }
 
 int main(void)
 {
 	int oflags;
-
-	signal(SIGIO,signal_handler);
-	fcntl(STDIN_FILENO,F_SETOWN,getpid());
-	oflags=fcntl(STDIN_FILENO,F_GETFL);
-	fcntl(STDIN_FILENO,F_SETFL,oflags|FASYNC);
+	printf("pid=%d\n",getpid());
+	signal(SIGUSR1,signal_handler);
 	while(1);
 	return 0;
 }

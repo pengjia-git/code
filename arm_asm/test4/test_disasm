@@ -1,0 +1,212 @@
+
+test:     file format elf64-littleaarch64
+
+
+Disassembly of section .interp:
+
+0000000000400190 <.interp>:
+  400190:	62696c2f 	.inst	0x62696c2f ; undefined
+  400194:	2d646c2f 	ldp	s15, s27, [x1, #-224]
+  400198:	756e696c 	.inst	0x756e696c ; undefined
+  40019c:	61612d78 	.inst	0x61612d78 ; undefined
+  4001a0:	36686372 	tbz	w18, #13, 400e0c <_start+0xb5c>
+  4001a4:	6f732e34 	.inst	0x6f732e34 ; undefined
+  4001a8:	Address 0x00000000004001a8 is out of bounds.
+
+
+Disassembly of section .hash:
+
+00000000004001b0 <.hash>:
+  4001b0:	00000001 	.inst	0x00000001 ; undefined
+  4001b4:	00000002 	.inst	0x00000002 ; undefined
+  4001b8:	00000001 	.inst	0x00000001 ; undefined
+	...
+
+Disassembly of section .gnu.hash:
+
+00000000004001c8 <.gnu.hash>:
+  4001c8:	00000001 	.inst	0x00000001 ; undefined
+  4001cc:	00000001 	.inst	0x00000001 ; undefined
+  4001d0:	00000001 	.inst	0x00000001 ; undefined
+	...
+
+Disassembly of section .dynsym:
+
+00000000004001e8 <.dynsym>:
+	...
+  400200:	0000000b 	.inst	0x0000000b ; undefined
+  400204:	00000012 	.inst	0x00000012 ; undefined
+	...
+
+Disassembly of section .dynstr:
+
+0000000000400218 <.dynstr>:
+  400218:	62696c00 	.inst	0x62696c00 ; undefined
+  40021c:	6f732e63 	.inst	0x6f732e63 ; undefined
+  400220:	7000362e 	adr	x14, 4008e7 <_start+0x637>
+  400224:	746e6972 	.inst	0x746e6972 ; undefined
+  400228:	4c470066 	.inst	0x4c470066 ; undefined
+  40022c:	5f434249 	.inst	0x5f434249 ; undefined
+  400230:	37312e32 	tbnz	w18, #6, 4027f4 <_start+0x2544>
+	...
+
+Disassembly of section .gnu.version:
+
+0000000000400236 <.gnu.version>:
+  400236:	00020000 	.inst	0x00020000 ; undefined
+
+Disassembly of section .gnu.version_r:
+
+0000000000400240 <.gnu.version_r>:
+  400240:	00010001 	.inst	0x00010001 ; undefined
+  400244:	00000001 	.inst	0x00000001 ; undefined
+  400248:	00000010 	.inst	0x00000010 ; undefined
+  40024c:	00000000 	.inst	0x00000000 ; undefined
+  400250:	06969197 	.inst	0x06969197 ; undefined
+  400254:	00020000 	.inst	0x00020000 ; undefined
+  400258:	00000012 	.inst	0x00000012 ; undefined
+  40025c:	00000000 	.inst	0x00000000 ; undefined
+
+Disassembly of section .rela.plt:
+
+0000000000400260 <.rela.plt>:
+  400260:	00411000 	.inst	0x00411000 ; undefined
+  400264:	00000000 	.inst	0x00000000 ; undefined
+  400268:	00000402 	.inst	0x00000402 ; undefined
+  40026c:	00000001 	.inst	0x00000001 ; undefined
+	...
+
+Disassembly of section .plt:
+
+0000000000400280 <.plt>:
+  400280:	a9bf7bf0 	stp	x16, x30, [sp, #-16]!
+  400284:	90000090 	adrp	x16, 410000 <_start+0xfd50>
+  400288:	f947fe11 	ldr	x17, [x16, #4088]
+  40028c:	913fe210 	add	x16, x16, #0xff8
+  400290:	d61f0220 	br	x17
+  400294:	d503201f 	nop
+  400298:	d503201f 	nop
+  40029c:	d503201f 	nop
+
+00000000004002a0 <printf@plt>:
+  4002a0:	b0000090 	adrp	x16, 411000 <printf@GLIBC_2.17>
+  4002a4:	f9400211 	ldr	x17, [x16]
+  4002a8:	91000210 	add	x16, x16, #0x0
+  4002ac:	d61f0220 	br	x17
+
+Disassembly of section .text:
+
+00000000004002b0 <_start>:
+  4002b0:	a9bd7bfd 	stp	x29, x30, [sp, #-48]!
+  4002b4:	10086aa9 	adr	x9, 411008 <my_data1>
+  4002b8:	f940000a 	ldr	x10, [x0]
+  4002bc:	580001a5 	ldr	x5, 4002f0 <_start+0x40>
+  4002c0:	f94000a2 	ldr	x2, [x5]
+  4002c4:	580001a6 	ldr	x6, 4002f8 <_start+0x48>
+  4002c8:	f94000c3 	ldr	x3, [x6]
+  4002cc:	9140058b 	add	x11, x12, #0x1, lsl #12
+  4002d0:	92f00001 	mov	x1, #0x7fffffffffffffff    	// #9223372036854775807
+  4002d4:	b1000820 	adds	x0, x1, #0x2
+  4002d8:	d53b4202 	mrs	x2, nzcv
+  4002dc:	8b030041 	add	x1, x2, x3
+  4002e0:	58000100 	ldr	x0, 400300 <_start+0x50>
+  4002e4:	97ffffef 	bl	4002a0 <printf@plt>
+  4002e8:	a8c37bfd 	ldp	x29, x30, [sp], #48
+  4002ec:	d65f03c0 	ret
+  4002f0:	00411008 	.word	0x00411008
+  4002f4:	00000000 	.word	0x00000000
+  4002f8:	00411010 	.word	0x00411010
+  4002fc:	00000000 	.word	0x00000000
+  400300:	00411014 	.word	0x00411014
+  400304:	00000000 	.word	0x00000000
+
+Disassembly of section .dynamic:
+
+0000000000410e90 <_DYNAMIC>:
+  410e90:	00000001 	.inst	0x00000001 ; undefined
+  410e94:	00000000 	.inst	0x00000000 ; undefined
+  410e98:	00000001 	.inst	0x00000001 ; undefined
+  410e9c:	00000000 	.inst	0x00000000 ; undefined
+  410ea0:	00000004 	.inst	0x00000004 ; undefined
+  410ea4:	00000000 	.inst	0x00000000 ; undefined
+  410ea8:	004001b0 	.inst	0x004001b0 ; undefined
+  410eac:	00000000 	.inst	0x00000000 ; undefined
+  410eb0:	6ffffef5 	.inst	0x6ffffef5 ; undefined
+  410eb4:	00000000 	.inst	0x00000000 ; undefined
+  410eb8:	004001c8 	.inst	0x004001c8 ; undefined
+  410ebc:	00000000 	.inst	0x00000000 ; undefined
+  410ec0:	00000005 	.inst	0x00000005 ; undefined
+  410ec4:	00000000 	.inst	0x00000000 ; undefined
+  410ec8:	00400218 	.inst	0x00400218 ; undefined
+  410ecc:	00000000 	.inst	0x00000000 ; undefined
+  410ed0:	00000006 	.inst	0x00000006 ; undefined
+  410ed4:	00000000 	.inst	0x00000000 ; undefined
+  410ed8:	004001e8 	.inst	0x004001e8 ; undefined
+  410edc:	00000000 	.inst	0x00000000 ; undefined
+  410ee0:	0000000a 	.inst	0x0000000a ; undefined
+  410ee4:	00000000 	.inst	0x00000000 ; undefined
+  410ee8:	0000001d 	.inst	0x0000001d ; undefined
+  410eec:	00000000 	.inst	0x00000000 ; undefined
+  410ef0:	0000000b 	.inst	0x0000000b ; undefined
+  410ef4:	00000000 	.inst	0x00000000 ; undefined
+  410ef8:	00000018 	.inst	0x00000018 ; undefined
+  410efc:	00000000 	.inst	0x00000000 ; undefined
+  410f00:	00000015 	.inst	0x00000015 ; undefined
+	...
+  410f10:	00000003 	.inst	0x00000003 ; undefined
+  410f14:	00000000 	.inst	0x00000000 ; undefined
+  410f18:	00410fe8 	.inst	0x00410fe8 ; undefined
+  410f1c:	00000000 	.inst	0x00000000 ; undefined
+  410f20:	00000002 	.inst	0x00000002 ; undefined
+  410f24:	00000000 	.inst	0x00000000 ; undefined
+  410f28:	00000018 	.inst	0x00000018 ; undefined
+  410f2c:	00000000 	.inst	0x00000000 ; undefined
+  410f30:	00000014 	.inst	0x00000014 ; undefined
+  410f34:	00000000 	.inst	0x00000000 ; undefined
+  410f38:	00000007 	.inst	0x00000007 ; undefined
+  410f3c:	00000000 	.inst	0x00000000 ; undefined
+  410f40:	00000017 	.inst	0x00000017 ; undefined
+  410f44:	00000000 	.inst	0x00000000 ; undefined
+  410f48:	00400260 	.inst	0x00400260 ; undefined
+  410f4c:	00000000 	.inst	0x00000000 ; undefined
+  410f50:	6ffffffe 	.inst	0x6ffffffe ; undefined
+  410f54:	00000000 	.inst	0x00000000 ; undefined
+  410f58:	00400240 	.inst	0x00400240 ; undefined
+  410f5c:	00000000 	.inst	0x00000000 ; undefined
+  410f60:	6fffffff 	.inst	0x6fffffff ; undefined
+  410f64:	00000000 	.inst	0x00000000 ; undefined
+  410f68:	00000001 	.inst	0x00000001 ; undefined
+  410f6c:	00000000 	.inst	0x00000000 ; undefined
+  410f70:	6ffffff0 	.inst	0x6ffffff0 ; undefined
+  410f74:	00000000 	.inst	0x00000000 ; undefined
+  410f78:	00400236 	.inst	0x00400236 ; undefined
+	...
+
+Disassembly of section .got:
+
+0000000000410fe0 <_GLOBAL_OFFSET_TABLE_>:
+  410fe0:	00410e90 	.inst	0x00410e90 ; undefined
+  410fe4:	00000000 	.inst	0x00000000 ; undefined
+
+Disassembly of section .got.plt:
+
+0000000000410fe8 <.got.plt>:
+	...
+  411000:	00400280 	.inst	0x00400280 ; undefined
+  411004:	00000000 	.inst	0x00000000 ; undefined
+
+Disassembly of section .data:
+
+0000000000411008 <my_data1>:
+  411008:	00000064 	.word	0x00000064
+  41100c:	00000000 	.word	0x00000000
+
+0000000000411010 <my_data2>:
+  411010:	00000032 	.word	0x00000032
+
+0000000000411014 <print_data>:
+  411014:	61746164 	.word	0x61746164
+  411018:	6d757320 	.word	0x6d757320
+  41101c:	6425203a 	.word	0x6425203a
+  411020:	0000000a 	.word	0x0000000a
+  411024:	00000000 	.word	0x00000000
