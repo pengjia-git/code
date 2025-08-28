@@ -8,7 +8,7 @@ np.random.seed(42)
 tf.random.set_seed(42)
 
 max_degree = 20  # 多项式的最大阶数
-n_train, n_test = 1000, 1000  # 训练和测试数据集大小
+n_train, n_test = 100, 100  # 训练和测试数据集大小
 true_w = np.zeros(max_degree)  # 分配大量的空间
 true_w[0:4] = np.array([5, 1.2, -3.4, 5.6])
 
@@ -52,8 +52,8 @@ train_labels = labels[:split_index]
 test_labels = labels[split_index:]
 
 # 为训练集和测试集创建 Dataset
-train_dataset = tf.data.Dataset.from_tensor_slices((train_features, train_labels)).batch(50)
-test_dataset = tf.data.Dataset.from_tensor_slices((test_features, test_labels)).batch(50)
+train_dataset = tf.data.Dataset.from_tensor_slices((train_features, train_labels)).batch(10)
+test_dataset = tf.data.Dataset.from_tensor_slices((test_features, test_labels)).batch(10)
 
 patience=10
 wait=0
@@ -70,4 +70,5 @@ for epoch in range(2000):
         gradients = tape.gradient(loss, trainable_vars)
         optimizer.apply_gradients(zip(gradients, trainable_vars))
     print("epoch:",epoch,"loss:",loss)
-    #二阶 loss 3.89  7.04  --不是很稳定 不知道是不是跟学习率有关，还是数据量大小了
+    #二阶 loss 3.89  7.04  --不是很稳定 不知道是不是跟学习率有关，还是数据量大小了 --数据不稳定的原因找打了，是每次产生的数据不一样，
+    #现在增加了seed，每次的训练和测试的数据是一致的了。
