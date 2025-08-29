@@ -66,7 +66,7 @@ class PolyModel(tf.keras.Model):
         return tf.tensordot(poly, self.w, axes=1) + self.b
 
 # 创建模型和优化器
-model = PolyModel(degree=6)
+model = PolyModel(degree=20)
 optimizer = optimizers.Adam(learning_rate=0.01)
 
 # 训练循环
@@ -81,10 +81,10 @@ for epoch in range(2000):
         gradients = tape.gradient(loss, model.trainable_variables)
         optimizer.apply_gradients(zip(gradients, model.trainable_variables))
         
-    print(f"Epoch {epoch}, Loss: {loss.numpy()}, Weights: {model.w.numpy()}")
+    #print(f"Epoch {epoch}, Loss: {loss.numpy()}, Weights: {model.w.numpy()}")
     
     # 可选: 每100个epoch检查测试损失
-    if epoch % 100 == 0:
-        test_pred = model(test_features)
-        test_loss = tf.reduce_mean(tf.square(test_pred - test_labels))
-        print(f"Test Loss at Epoch {epoch}: {test_loss.numpy()}")
+    #if epoch % 100 == 0:
+    test_pred = model(test_features)
+    test_loss = tf.reduce_mean(tf.square(test_pred - test_labels))
+    print(f" epoch {epoch} : Loss={loss.numpy()}  test loss={test_loss.numpy()}")
