@@ -3,8 +3,8 @@ import numpy as np
 import tensorflow as tf
 
 # 1. 创建输入数据（根据图片描述）
-X = tf.Variable(tf.ones((6, 8))*2)
-X[:, 2:6].assign(tf.zeros(X[:, 2:6].shape))
+X = tf.Variable(tf.ones((6, 8)))
+X[2:4, 2:6].assign(tf.zeros(X[2:4, 2:6].shape))
 
 print("输入图像:")
 print(X.numpy())
@@ -13,8 +13,9 @@ print(X.numpy())
 X = tf.reshape(X, (1, 6, 8, 1))  # 批次大小为1，只有一个样本
 
 # 2. 使用真实卷积核计算期望输出
-kernel_real = tf.constant([[-1, 1]], dtype=tf.float32)
-kernel_real = tf.reshape(kernel_real, (1, 2, 1, 1))  # (高度, 宽度, 输入通道, 输出通道)
+# 更好的组合核设计
+kernel_real = tf.constant([[1], [-1]], dtype=tf.float32)
+kernel_real = tf.reshape(kernel_real, (2, 1, 1, 1))  # (高度, 宽度, 输入通道, 输出通道)
 
 # 计算期望输出
 Y_true = tf.nn.conv2d(X, kernel_real, strides=1, padding='VALID')
@@ -23,7 +24,7 @@ print("期望输出:")
 print(Y_true.numpy().reshape(Y_true.shape[1], Y_true.shape[2]))
 
 # 3. 初始化可训练的卷积核（接近0的随机值）
-kernel = tf.Variable(tf.random.normal([1, 2, 1, 1], mean=0.0, stddev=0.1))
+kernel = tf.Variable(tf.random.normal([2, 1, 1, 1], mean=0.0, stddev=0.1))
 
 # 4. 定义训练参数
 learning_rate = 0.01
