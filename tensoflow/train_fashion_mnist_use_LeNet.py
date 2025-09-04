@@ -20,20 +20,22 @@ test_labels = test_labels.astype('int64')
 
 def net():
     return tf.keras.models.Sequential([
-        tf.keras.layers.Conv2D(filters=6, kernel_size=5, activation='sigmoid',
+        tf.keras.layers.Conv2D(filters=6, kernel_size=5, activation='relu',
                                padding='same'),
         tf.keras.layers.AvgPool2D(pool_size=2, strides=2),
         tf.keras.layers.Conv2D(filters=16, kernel_size=5,
-                               activation='sigmoid'),
+                               activation='relu'),
         tf.keras.layers.AvgPool2D(pool_size=2, strides=2),
         tf.keras.layers.Flatten(),
-        tf.keras.layers.Dense(120, activation='sigmoid'),
-        tf.keras.layers.Dense(84, activation='sigmoid'),
+        tf.keras.layers.Dense(120, activation='relu', kernel_initializer='he_normal'),
+        tf.keras.layers.Dense(84, activation='relu'),
         tf.keras.layers.Dense(10)])
 # 4. 训练
 optimizer = tf.optimizers.SGD(0.01)
 
 model = net()
+model.build(input_shape=(None, 28, 28, 1))
+print(model.summary())
 
 # 创建数据集用于批处理
 train_dataset = tf.data.Dataset.from_tensor_slices((train_images, train_labels)).batch(32)
@@ -44,10 +46,11 @@ for epoch in range(20):
     for batch_x, batch_y in train_dataset:
         with tf.GradientTape() as tape:
             pred = model(batch_x)
-            loss = tf.reduce_mean(tf.keras.losses.sparse_categorical_crossentropy(batch_y, pred))
+            loss = tf.reduce_mean(tf.keras.losses.sparse_categorical_crossentropy(batch_y, pred, from_logits=True))
         gradients = tape.gradient(loss, model.trainable_variables)  # 修改这里
         optimizer.apply_gradients(zip(gradients, model.trainable_variables))  # 修改这里
-    
+   
+    print(f"Epoch {epoch}, Loss: {loss.numpy()}")
     # 评估阶段
     correct_predictions = 0
     total_samples = 0
