@@ -41,7 +41,7 @@ print(model.summary())
 train_dataset = tf.data.Dataset.from_tensor_slices((train_images, train_labels)).batch(32)
 test_dataset = tf.data.Dataset.from_tensor_slices((test_images, test_labels)).batch(32)
 
-for epoch in range(20):
+for epoch in range(30):
     # 训练阶段
     for batch_x, batch_y in train_dataset:
         with tf.GradientTape() as tape:
@@ -61,3 +61,5 @@ for epoch in range(20):
     
     accuracy = correct_predictions / total_samples
     print(f"Epoch {epoch}, Test Accuracy: {accuracy.numpy()}")
+    #Epoch 29, Loss: 0.2142777442932129
+    #Epoch 29, Test Accuracy: 0.8798999786376953
