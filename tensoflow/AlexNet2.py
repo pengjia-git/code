@@ -25,8 +25,8 @@ def resize_with_tf(images, target_size=(224, 224)):
     return resized.numpy()
 
 # 应用resize
-#train_images = resize_with_tf(test_images, (224, 224))
-test_images = resize_with_tf(test_images, (224, 224))
+#train_images = resize_with_tf(train_images, (224, 224))
+#test_images = resize_with_tf(test_images, (224, 224))
 # 4. 验证形状
 print(f"Resized train images shape: {test_images.shape}, data type:{test_images.dtype}")  # 应该是 (60000, 224, 224, 3)
 
@@ -46,20 +46,20 @@ if sample_image.dtype != np.uint8:
         sample_image = sample_image.astype(np.uint8)
 
 # 6. 转换为PIL图像格式并保存
-pil_image = Image.fromarray(sample_image, 'RGB')
+#pil_image = Image.fromarray(sample_image, 'RGB')
 
-# 保存为BMP格式
-bmp_path = '/root/code/tensoflow/fashion_sample.bmp'
-pil_image.save(bmp_path, 'BMP')
+# 保存为BMP格式 --这是个绝对路径，在不同环境下需要修改下面的路径
+#bmp_path = '/root/code/tensoflow/fashion_sample.bmp'
+#pil_image.save(bmp_path, 'BMP')
 
-print(f"图片已保存到: {bmp_path}")
-print(f"图片形状: {sample_image.shape}")
-print(f"图片数据类型: {sample_image.dtype}")
+#print(f"图片已保存到: {bmp_path}")
+#print(f"图片形状: {sample_image.shape}")
+#print(f"图片数据类型: {sample_image.dtype}")
 
-train_images = train_images / 255.0  # 归一化
-test_images = test_images / 255.0
+#train_images = train_images / 255.0  # 归一化
+#test_images = test_images / 255.0
 # 打印train_images的数据类型
-print(train_images.dtype)
+#print(train_images.dtype)
 
 
 
@@ -112,12 +112,13 @@ model = net()
 print(model.summary())
 
 # 创建数据集用于批处理
-train_dataset = tf.data.Dataset.from_tensor_slices((train_images, train_labels)).batch(32)
-test_dataset = tf.data.Dataset.from_tensor_slices((test_images, test_labels)).batch(32)
+train_dataset = tf.data.Dataset.from_tensor_slices((train_images, train_labels)).batch(200)
+test_dataset = tf.data.Dataset.from_tensor_slices((test_images, test_labels)).batch(200)
 
 for epoch in range(30):
     # 训练阶段
     for batch_x, batch_y in train_dataset:
+        batch_x=resize_with_tf(batch_x, (224, 224))/255.0
         with tf.GradientTape() as tape:
             pred = model(batch_x)
             loss = tf.reduce_mean(tf.keras.losses.sparse_categorical_crossentropy(batch_y, pred, from_logits=True))
@@ -129,6 +130,7 @@ for epoch in range(30):
     correct_predictions = 0
     total_samples = 0
     for batch_x, batch_y in test_dataset:
+        batch_x=resize_with_tf(batch_x, (224, 224))/255.0
         test_pred = tf.argmax(model(batch_x), axis=1)
         correct_predictions += tf.reduce_sum(tf.cast(tf.equal(test_pred, batch_y), tf.float32))
         total_samples += batch_x.shape[0]
