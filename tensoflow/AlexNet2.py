@@ -15,18 +15,18 @@ def resize_with_tf(images, target_size=(224, 224)):
         images = tf.expand_dims(images, axis=-1)  # 添加通道维度
     
     # 转换为3通道
-    if images.shape[-1] == 1:
-        images_3ch = tf.repeat(images, 3, axis=-1)
-    else:
-        images_3ch = images
+    # if images.shape[-1] == 1:
+    #     images_3ch = tf.repeat(images, 3, axis=-1)
+    # else:
+    #     images_3ch = images
     
     # 正确的resize操作
-    resized = tf.image.resize(images_3ch, target_size, method='bilinear')
+    resized = tf.image.resize(images, target_size, method='bilinear')
     return resized.numpy()
 
 # 应用resize
-#train_images = resize_with_tf(train_images, (224, 224))
-#test_images = resize_with_tf(test_images, (224, 224))
+# train_images = resize_with_tf(train_images, (224, 224))
+# test_images = resize_with_tf(test_images, (224, 224))
 # 4. 验证形状
 print(f"Resized train images shape: {test_images.shape}, data type:{test_images.dtype}")  # 应该是 (60000, 224, 224, 3)
 
@@ -109,11 +109,12 @@ for layer in net().layers:
 optimizer = tf.optimizers.SGD(0.01)
 
 model = net()
+model.build(input_shape=(None, 224, 224, 1))
 print(model.summary())
 
 # 创建数据集用于批处理
-train_dataset = tf.data.Dataset.from_tensor_slices((train_images, train_labels)).batch(200)
-test_dataset = tf.data.Dataset.from_tensor_slices((test_images, test_labels)).batch(200)
+train_dataset = tf.data.Dataset.from_tensor_slices((train_images, train_labels)).batch(128)
+test_dataset = tf.data.Dataset.from_tensor_slices((test_images, test_labels)).batch(128)
 
 for epoch in range(30):
     # 训练阶段
@@ -137,5 +138,4 @@ for epoch in range(30):
     
     accuracy = correct_predictions / total_samples
     print(f"Epoch {epoch}, Test Accuracy: {accuracy.numpy()}")
-    #Epoch 29, Loss: 0.2142777442932129
-    #Epoch 29, Test Accuracy: 0.8798999786376953
+    #Epoch 10, Test Accuracy: 0.8898000121116638
