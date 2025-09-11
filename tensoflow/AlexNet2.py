@@ -1,12 +1,12 @@
 import tensorflow as tf
-from tensorflow.keras.datasets import fashion_mnist
+from tensorflow.keras.datasets import mnist
 import os
 
 from PIL import Image
 import numpy as np
 
 # 1. 数据准备
-(train_images, train_labels), (test_images, test_labels) = fashion_mnist.load_data()
+(train_images, train_labels), (test_images, test_labels) = mnist.load_data()
 
 # 更高效的TensorFlow实现
 def resize_with_tf(images, target_size=(224, 224)):
