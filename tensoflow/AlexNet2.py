@@ -62,6 +62,26 @@ if sample_image.dtype != np.uint8:
 #print(train_images.dtype)
 
 
+# 定义预处理函数
+def preprocess_images(images, training=True):
+    # 数据增强 (仅在训练模式下使用)
+    if training:
+        # 随机水平翻转
+        images = tf.image.random_flip_left_right(images)
+        # 随机调整亮度、对比度
+        images = tf.image.random_brightness(images, max_delta=0.2)
+        images = tf.image.random_contrast(images, lower=0.8, upper=1.2)
+        # 随机旋转
+        #images = tf.image.rot90(images, tf.random.uniform(shape=[], minval=0, maxval=4, dtype=tf.int32))
+        # 随机缩放
+        images = tf.image.resize(images, [250, 250])
+        images = tf.image.random_crop(images, size=[tf.shape(images)[0], 224, 224, tf.shape(images)[-1]])
+        # 添加轻微噪声
+        images = images + tf.random.normal(shape=tf.shape(images), mean=0.0, stddev=0.01)
+    
+    return images
+
+
 
 # 确保标签为int64类型
 train_labels = train_labels.astype('int64')
@@ -74,20 +94,25 @@ def net():
         # 另外，输出通道的数目远大于LeNet
         tf.keras.layers.Conv2D(filters=96, kernel_size=11, strides=4,
                                activation='relu'),
+        tf.keras.layers.BatchNormalization(),
         tf.keras.layers.MaxPool2D(pool_size=3, strides=2),
         # 减小卷积窗口，使用填充为2来使得输入与输出的高和宽一致，且增大输出通道数
         tf.keras.layers.Conv2D(filters=256, kernel_size=5, padding='same',
                                activation='relu'),
+        tf.keras.layers.BatchNormalization(),
         tf.keras.layers.MaxPool2D(pool_size=3, strides=2),
         # 使用三个连续的卷积层和较小的卷积窗口。
         # 除了最后的卷积层，输出通道的数量进一步增加。
         # 在前两个卷积层之后，汇聚层不用于减少输入的高度和宽度
         tf.keras.layers.Conv2D(filters=384, kernel_size=3, padding='same',
                                activation='relu'),
+        tf.keras.layers.BatchNormalization(),
         tf.keras.layers.Conv2D(filters=384, kernel_size=3, padding='same',
                                activation='relu'),
+        tf.keras.layers.BatchNormalization(),
         tf.keras.layers.Conv2D(filters=256, kernel_size=3, padding='same',
                                activation='relu'),
+        tf.keras.layers.BatchNormalization(),
         tf.keras.layers.MaxPool2D(pool_size=3, strides=2),
         tf.keras.layers.Flatten(),
         # 这里，全连接层的输出数量是LeNet中的好几倍。使用dropout层来减轻过拟合
@@ -106,7 +131,8 @@ for layer in net().layers:
     print(layer.__class__.__name__, 'output shape:\t', X.shape)
 
 # 4. 训练
-optimizer = tf.optimizers.SGD(0.01)
+# optimizer = tf.optimizers.SGD(0.01)
+optimizer = tf.optimizers.Adam(0.001)
 
 model = net()
 model.build(input_shape=(None, 224, 224, 1))
@@ -116,10 +142,11 @@ print(model.summary())
 train_dataset = tf.data.Dataset.from_tensor_slices((train_images, train_labels)).batch(128)
 test_dataset = tf.data.Dataset.from_tensor_slices((test_images, test_labels)).batch(128)
 
-for epoch in range(30):
+for epoch in range(100):
     # 训练阶段
     for batch_x, batch_y in train_dataset:
         batch_x=resize_with_tf(batch_x, (224, 224))/255.0
+        batch_x=preprocess_images(batch_x, training=True)
         with tf.GradientTape() as tape:
             pred = model(batch_x)
             loss = tf.reduce_mean(tf.keras.losses.sparse_categorical_crossentropy(batch_y, pred, from_logits=True))
