@@ -32,7 +32,7 @@ class Vocab:  #@save
             tokens = []
         if reserved_tokens is None:
             reserved_tokens = []
-        # 按出现频率排序
+        # 统计token出现的次数
         counter = count_corpus(tokens)
 
         #打印counter的前5项值
@@ -42,6 +42,7 @@ class Vocab:  #@save
             count=count+1
             if(count > 5):
                 break
+        # 按出现次数排序
         self._token_freqs = sorted(counter.items(), key=lambda x: x[1],
                                    reverse=True)
 
