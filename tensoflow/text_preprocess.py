@@ -9,10 +9,6 @@ def read_time_machine():
         lines = f.readlines()
     return [re.sub(r'[^A-Za-z]+', ' ', line).strip().lower() for line in lines]
 
-lines = read_time_machine()
-print(f"lines len={len(lines)}")
-print(lines[0])
-print(lines[10])
 
 def tokenize(lines, token='word'):  #@save
     """将文本行拆分为单词或字符词元"""
@@ -23,9 +19,6 @@ def tokenize(lines, token='word'):  #@save
     else:
         print('错误：未知词元类型：' + token)
 
-tokens = tokenize(lines)
-for i in range(11):
-    print(tokens[i])
     
     
 class Vocab:  #@save
@@ -97,11 +90,6 @@ def count_corpus(tokens):  #@save
         tokens = [token for line in tokens for token in line]
     return collections.Counter(tokens)
 
-vocab = Vocab(tokens)
-#print(list(vocab.token_to_idx.items())[:10])
-idx = vocab.token_to_idx["<unk>"]
-print(idx)
-print( vocab[["the","pengjia"]])
 
 def load_corpus_time_machine(max_tokens=-1):  
     """返回时光机器数据集的词元索引列表和词表"""
@@ -115,12 +103,6 @@ def load_corpus_time_machine(max_tokens=-1):
         corpus = corpus[:max_tokens]
     return corpus, vocab
 
-corpus, vocab = load_corpus_time_machine()
-print(f"len={len(corpus)}, len={len(vocab)}")
-
-subCorpus=corpus[:30]
-for c in subCorpus:
-    print(c,vocab.to_tokens(c))
     
 def seq_data_iter_random(corpus, batch_size, num_steps):  #@save
     """使用随机抽样生成一个小批量子序列"""
@@ -184,7 +166,3 @@ def load_data_time_machine(batch_size, num_steps,  #@save
     return data_iter, data_iter.vocab
 
 data_set,vocab=load_data_time_machine(4,20)    
-for X,Y in data_set:
-    print("x:",X)
-    print("y:",Y)
-    break
