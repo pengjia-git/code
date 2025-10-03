@@ -80,7 +80,7 @@ def count_corpus(tokens):  #@save
 def load_corpus_time_machine(max_tokens=-1):  
     """返回时光机器数据集的词元索引列表和词表"""
     lines = read_time_machine()
-    tokens = tokenize(lines, 'word')
+    tokens = tokenize(lines, 'char')
     vocab = Vocab(tokens)
     # 因为时光机器数据集中的每个文本行不一定是一个句子或一个段落，
     # 所以将所有文本行展平到一个列表中
@@ -167,6 +167,21 @@ def get_params(vocab_size, num_hiddens):
     W_hq = tf.Variable(normal((num_hiddens, num_outputs)), dtype=tf.float32)
     b_q = tf.Variable(tf.zeros(num_outputs), dtype=tf.float32)
     params = [W_xh, W_hh, b_h, W_hq, b_q]
+#    print(params)
+    params_sum=0
+    x,y=W_xh.shape
+    params_sum+=x*y
+    print(f"x={x},y={y}")
+
+    x,y=W_hh.shape
+    params_sum+=x*y
+    print(f"x={x},y={y}")
+
+    x,y=W_hq.shape
+    params_sum+=x*y
+    print(f"x={x},y={y}")
+
+    print(f"params_sum={params_sum}")
     return params
 
 def init_rnn_state(batch_size, num_hiddens):
