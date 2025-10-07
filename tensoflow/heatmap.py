@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
 
-def show_heatmaps(matrices, xlabel, ylabel, titles=None, figsize=(2.5, 2.5), cmap='Reds'):
+def show_heatmaps(matrices, xlabel, ylabel, titles=None, figsize=(5, 5), cmap='Reds'):
     """显示矩阵热图"""
     # 确保 matrices 是 4D 张量 (num_rows, num_cols, height, width)
     if len(matrices.shape) == 2:
@@ -46,8 +46,8 @@ def show_heatmaps(matrices, xlabel, ylabel, titles=None, figsize=(2.5, 2.5), cma
             ax.set_yticks([0, matrix_data.shape[0]-1])
     
     # 添加颜色条
-    # if pcm is not None:
-    #     fig.colorbar(pcm, ax=axes, shrink=0.6)
+    if pcm is not None:
+        fig.colorbar(pcm, ax=axes, shrink=0.6)
     
     plt.tight_layout()
     plt.show()
@@ -78,11 +78,9 @@ def create_diagonal_attention(seq_len=9):
     
     return tf.constant(attention_weights, dtype=tf.float32)
 
+random_matrix=tf.random.normal(shape=(9,9))
+attention_weights=tf.nn.softmax(random_matrix, axis=-1)
 # 生成并显示热力图
-attention_weights = create_diagonal_attention(9)
-# print(attention_weights)
-# exit()
+# attention_weights = create_diagonal_attention(9)
 attention_weights = tf.reshape(attention_weights, (1, 1, 9, 9))
-# print(f"shapes: {attention_weights.shape},shapes[0]={attention_weights.shape[0]},shapes[1]={attention_weights.shape[1]}")
-# exit()
 show_heatmaps(attention_weights, xlabel='Keys', ylabel='Queries')
